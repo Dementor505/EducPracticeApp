@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EducationAppHabLat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="1314" MinHeight="700" MinWidth="1314" SizeChanged="Window_SizeChanged">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="DodgerBlue" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"></Rectangle>
+        <Rectangle Fill="#FF72BAFF" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3"></Rectangle>
+        <Border BorderBrush="Black" BorderThickness="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3"></Border>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Background="#FFB3DAFF">
+            <Frame x:Name="MainFrame">
+
+            </Frame>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="3">
+            <Border BorderBrush="Black" BorderThickness="3">
+                <TextBlock Text="     MENU CONTROL" FontFamily="Elephant" FontWeight="UltraBold" FontSize="20" Width="130" Height="50" TextWrapping="Wrap" Background="DodgerBlue"></TextBlock>
+            </Border>
+        </StackPanel>
+
+        <Label Content="OUR TOP PROJECT" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Elephant" FontSize="50"></Label>
+
+        <Label Grid.Row="4" Grid.Column="0" x:Name="Statistic" Height="30" VerticalAlignment="Bottom" FontSize="15"></Label>
     </Grid>
 </Window>

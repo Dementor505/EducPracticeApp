@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using EducationAppHabLat.Pages;
 
-namespace EducationAppHabLat
+namespace EducationAppHabLat.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для GradeStatistic.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GradeStatistic : Page
     {
-        public MainWindow()
+        public GradeStatistic()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new GradeStatistic());
-
-        }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            Statistic.Content = $"H: {this.Height}   W: {this.Width}"; 
         }
     }
 }

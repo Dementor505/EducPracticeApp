@@ -1,0 +1,47 @@
+﻿<Page x:Class="EducationAppHabLat.Pages.GradeStatistic"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationAppHabLat.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1184"
+      Title="GradeStatistic">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="#FF72BAFF" Grid.Row="0" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Sort: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
+                <ComboBox Width="230"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Filtr: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
+                <ComboBox Width="230"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Search: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
+                <TextBox Width="230"></TextBox>
+            </StackPanel>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
+        </StackPanel>
+        <StackPanel Background="#FFB3DAFF" Grid.Row="1">
+            <ListView Width="1314">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="№" Width="30"></GridViewColumn>
+                        <GridViewColumn Header="Дисциплина" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="Сотрудник" Width="150"></GridViewColumn>
+                        <GridViewColumn Header="Студент" Width="200"></GridViewColumn>
+                        <GridViewColumn Header="Дата" Width="100"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <Border Grid.Row="0" BorderBrush="Black" BorderThickness="3"></Border>
+    </Grid>
+</Page>
