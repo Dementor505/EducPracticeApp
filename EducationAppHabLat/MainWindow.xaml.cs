@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EducationAppHabLat.Pages;
+using EducationAppHabLat.MyBase;
 
 namespace EducationAppHabLat
 {
@@ -24,13 +25,39 @@ namespace EducationAppHabLat
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new GradeStatistic());
+            Navigation.mainWindow = this;
 
+            Navigation.NextPage(new PageComponent("Авторизация", new Authorization()));
+
+            this.Top = SystemParameters.PrimaryScreenHeight/2 - this.Height/2;
+            this.Left = SystemParameters.PrimaryScreenWidth/2 - this.Width/2;
+
+            GradeBtn.Visibility = Visibility.Hidden;
+            EmployeeBtn.Visibility = Visibility.Hidden;
+            ExamsBtn.Visibility = Visibility.Hidden;
+            DiciplineBtn.Visibility = Visibility.Hidden;
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             Statistic.Content = $"H: {this.Height}   W: {this.Width}"; 
+        }
+        public void MenuVisible()
+        {
+            if (App.isAdmin == true)
+            {
+                GradeBtn.Visibility = Visibility.Visible;
+                EmployeeBtn.Visibility = Visibility.Visible;
+                ExamsBtn.Visibility = Visibility.Visible;
+                DiciplineBtn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                GradeBtn.Visibility = Visibility.Visible;
+                EmployeeBtn.Visibility = Visibility.Hidden;
+                ExamsBtn.Visibility = Visibility.Hidden;
+                DiciplineBtn.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

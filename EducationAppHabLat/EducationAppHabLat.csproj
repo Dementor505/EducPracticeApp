@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,14 +80,70 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EmptyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\GradeStatistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyBase\Cathedra.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Claim.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Degree.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Dicipline.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Employee.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Exam.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Faculty.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Navigation.cs" />
+    <Compile Include="MyBase\Post.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Speciality.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Student.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\StudyBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudyBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\StudyBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\StudyBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudyBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\sysdiagrams.cs">
+      <DependentUpon>StudyBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmptyPage.xaml.cs">
+      <DependentUpon>EmptyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GradeStatistic.xaml.cs">
       <DependentUpon>GradeStatistic.xaml</DependentUpon>
@@ -100,6 +165,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="MyBase\StudyBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StudyBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MyBase\StudyBase.edmx.diagram">
+      <DependentUpon>StudyBase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,6 +180,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\Arrow.png" />
+    <Content Include="MyBase\StudyBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StudyBase.Context.cs</LastGenOutput>
+      <DependentUpon>StudyBase.edmx</DependentUpon>
+    </Content>
+    <Content Include="MyBase\StudyBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StudyBase.edmx</DependentUpon>
+      <LastGenOutput>StudyBase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MyClass\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

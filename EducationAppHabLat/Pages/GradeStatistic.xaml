@@ -30,7 +30,7 @@
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
-            <ListView Width="1314">
+            <ListView Width="1314" x:Name="a">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="№" Width="30"></GridViewColumn>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5800e1e7ab194155af772a36fd0e14fa" Name="Diagram1">
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Cathedra" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Claim" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Degree" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Dicipline" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Employee" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Exam" Width="1.5" PointX="9.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Faculty" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Post" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Speciality" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Student" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Cathedra_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Dicipline_Cathedra" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Employee_Cathedra" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Speciality_Cathedra" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Claim_Dicipline" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Claim_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Post_Degree" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Exam_Dicipline" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Employee_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Exam_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Exam_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Student_Speciality" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

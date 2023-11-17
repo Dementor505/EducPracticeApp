@@ -22,8 +22,8 @@
         <Rectangle Fill="DodgerBlue" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"></Rectangle>
         <Rectangle Fill="#FF72BAFF" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3"></Rectangle>
         <Border BorderBrush="Black" BorderThickness="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3"></Border>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Background="#FFB3DAFF">
-            <Frame x:Name="MainFrame">
+        <StackPanel Height="600" Width="1184" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Background="#FFB3DAFF">
+            <Frame Height="600" Width="1184" x:Name="MainFrame" HorizontalAlignment="Center" VerticalAlignment="Center" NavigationUIVisibility="Hidden">
 
             </Frame>
         </StackPanel>
@@ -37,5 +37,12 @@
         <Label Content="OUR TOP PROJECT" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Elephant" FontSize="50"></Label>
 
         <Label Grid.Row="4" Grid.Column="0" x:Name="Statistic" Height="30" VerticalAlignment="Bottom" FontSize="15"></Label>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="3">
+            <Button x:Name="GradeBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,100,0,0" Content="Оценки"></Button>
+            <Button x:Name="EmployeeBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Сотрудники"></Button>
+            <Button x:Name="ExamsBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Экзамены"></Button>
+            <Button x:Name="DiciplineBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Дисциплины"></Button>
+        </StackPanel>
     </Grid>
 </Window>
