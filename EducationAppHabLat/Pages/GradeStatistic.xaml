@@ -30,14 +30,12 @@
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
-            <ListView Width="1314" x:Name="a">
+            <ListView Width="1314" x:Name="StudentGrade">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="№" Width="30"></GridViewColumn>
-                        <GridViewColumn Header="Дисциплина" Width="130"></GridViewColumn>
-                        <GridViewColumn Header="Сотрудник" Width="150"></GridViewColumn>
-                        <GridViewColumn Header="Студент" Width="200"></GridViewColumn>
-                        <GridViewColumn Header="Дата" Width="100"></GridViewColumn>
+                        <GridViewColumn Header="№" DisplayMemberBinding="{Binding Reg_Number}" Width="30"></GridViewColumn>
+                        <GridViewColumn Header="Студент" DisplayMemberBinding="{Binding FIO_Student}" x:Name="StudentColumn" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="Оценка" DisplayMemberBinding="{Binding Exam.Grade}" x:Name="GradeColumn" Width="150"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

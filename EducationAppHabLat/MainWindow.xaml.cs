@@ -59,5 +59,10 @@ namespace EducationAppHabLat
                 DiciplineBtn.Visibility = Visibility.Hidden;
             }
         }
+
+        private void GradeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Авторизация", new GradeStatistic()));
+        }
     }
 }

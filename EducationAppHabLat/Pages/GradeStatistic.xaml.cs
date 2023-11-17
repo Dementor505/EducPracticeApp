@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EducationAppHabLat.MyBase;
 
 namespace EducationAppHabLat.Pages
 {
@@ -20,9 +21,12 @@ namespace EducationAppHabLat.Pages
     /// </summary>
     public partial class GradeStatistic : Page
     {
+        Exam exam { get; set; }
         public GradeStatistic()
         {
             InitializeComponent();
+
+            StudentGrade.ItemsSource = App.myDb.Student.ToList();
         }
     }
 }
