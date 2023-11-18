@@ -62,7 +62,12 @@ namespace EducationAppHabLat
 
         private void GradeBtn_Click(object sender, RoutedEventArgs e)
         {
-            Navigation.NextPage(new PageComponent("Авторизация", new GradeStatistic()));
+            Navigation.NextPage(new PageComponent("Оценки", new GradeStatistic()));
+        }
+
+        private void EmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Сотрудники", new EmployeePage()));
         }
     }
 }

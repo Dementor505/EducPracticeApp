@@ -12,21 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using EducationAppHabLat.MyBase;
 
 namespace EducationAppHabLat.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для GradeStatistic.xaml
+    /// Логика взаимодействия для DiciplinePage.xaml
     /// </summary>
-    public partial class GradeStatistic : Page
+    public partial class DiciplinePage : Page
     {
-        Exam exam { get; set; }
-        public GradeStatistic()
+        public DiciplinePage()
         {
             InitializeComponent();
 
-            StudentGrade.ItemsSource = App.myDb.Exam.ToList();
+            DiciplineList.ItemsSource = App.myDb.Dicipline.ToList();
         }
     }
 }

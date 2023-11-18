@@ -1,4 +1,4 @@
-﻿<Page x:Class="EducationAppHabLat.Pages.GradeStatistic"
+﻿<Page x:Class="EducationAppHabLat.Pages.DiciplinePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:EducationAppHabLat.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1184"
-      Title="GradeStatistic">
+      Title="DiciplinePage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -30,13 +30,13 @@
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
-            <ListView Width="1314" x:Name="StudentGrade">
+            <ListView x:Name="DiciplineList">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="№" DisplayMemberBinding="{Binding Reg_Number}" Width="30"></GridViewColumn>
-                        <GridViewColumn Header="Студент" DisplayMemberBinding="{Binding Student.FIO_Student}" x:Name="StudentColumn" Width="130"></GridViewColumn>
-                        <GridViewColumn Header="Дисциплина" DisplayMemberBinding="{Binding Dicipline.Name_Dicipline}" x:Name="DiciplineColumn" Width="150"></GridViewColumn>
-                        <GridViewColumn Header="Оценка" DisplayMemberBinding="{Binding Grade}" x:Name="GradeColumn" Width="150"></GridViewColumn>
+                        <GridViewColumn Header="№" DisplayMemberBinding="{Binding Code_Dicipline}" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name_Dicipline}" x:Name="FIOColumn" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="Кафедра" DisplayMemberBinding="{Binding Cathedra.Name_Cathedra}" x:Name="PostColumn" Width="150"></GridViewColumn>
+                        <GridViewColumn Header="Объём" DisplayMemberBinding="{Binding Space_Dicipline}" x:Name="MoneyColumn" Width="70"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

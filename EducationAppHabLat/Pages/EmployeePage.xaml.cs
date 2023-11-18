@@ -12,21 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using EducationAppHabLat.MyBase;
 
 namespace EducationAppHabLat.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для GradeStatistic.xaml
+    /// Логика взаимодействия для EmployeePage.xaml
     /// </summary>
-    public partial class GradeStatistic : Page
+    public partial class EmployeePage : Page
     {
-        Exam exam { get; set; }
-        public GradeStatistic()
+        public EmployeePage()
         {
             InitializeComponent();
 
-            StudentGrade.ItemsSource = App.myDb.Exam.ToList();
+            EmployeeList.ItemsSource = App.myDb.Employee.ToList();
         }
     }
 }
