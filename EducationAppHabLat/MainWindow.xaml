@@ -34,7 +34,7 @@
             </Border>
         </StackPanel>
 
-        <Label Content="OUR TOP PROJECT" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Elephant" FontSize="50"></Label>
+        <Label Content="MY TOP PROJECT" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Elephant" FontSize="50"></Label>
 
         <Label Grid.Row="4" Grid.Column="0" x:Name="Statistic" Height="30" VerticalAlignment="Bottom" FontSize="15"></Label>
 

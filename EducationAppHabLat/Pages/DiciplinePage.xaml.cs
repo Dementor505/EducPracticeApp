@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EducationAppHabLat.MyBase;
 
 namespace EducationAppHabLat.Pages
 {
@@ -25,6 +26,31 @@ namespace EducationAppHabLat.Pages
             InitializeComponent();
 
             DiciplineList.ItemsSource = App.myDb.Dicipline.ToList();
+
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            IEnumerable<Dicipline> SortedDicipline = App.myDb.Dicipline;
+
+            if(SortList.SelectedIndex == 0)
+            {
+                SortedDicipline = SortedDicipline.OrderBy(x => x.Name_Dicipline);
+            }
+            else if(SortList.SelectedIndex == 1)
+            {
+                SortedDicipline = SortedDicipline.OrderByDescending(x => x.Name_Dicipline);
+            }
+
+
+
+            DiciplineList.ItemsSource = SortedDicipline.ToList();
+        }
+
+        private void SortList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

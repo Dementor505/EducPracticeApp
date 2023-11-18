@@ -16,14 +16,14 @@
 
         <StackPanel Background="#FF72BAFF" Grid.Row="0" Orientation="Horizontal">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Sort: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
-                <ComboBox Width="230" x:Name="SortList">
+                <TextBlock Text="Sort:                    (по названию)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="105" HorizontalAlignment="Left"></TextBlock>
+                <ComboBox Width="230" x:Name="SortList" SelectionChanged="SortList_SelectionChanged">
                     <ComboBoxItem Content="ПО ВОЗРАСТАНИЮ"></ComboBoxItem>
                     <ComboBoxItem Content="ПО УБЫВАНИЮ"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Filtr: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,10,0">
+                <TextBlock Text="Filtr:         (по объёму)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="90" HorizontalAlignment="Left"></TextBlock>
                 <ComboBox Width="230" x:Name="FiltrList">
                     <ComboBoxItem Content="меньше 100"></ComboBoxItem>
                     <ComboBoxItem Content="больше 100 и меньше 200"></ComboBoxItem>
@@ -34,7 +34,7 @@
                 <Label Content="Search: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
                 <TextBox Width="230" x:Name="SearchTb"></TextBox>
             </StackPanel>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
             <ListView x:Name="DiciplineList">
