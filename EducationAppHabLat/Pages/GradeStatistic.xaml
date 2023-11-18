@@ -17,15 +17,23 @@
         <StackPanel Background="#FF72BAFF" Grid.Row="0" Orientation="Horizontal">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Content="Sort: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
-                <ComboBox Width="230"></ComboBox>
+                <ComboBox Width="230" x:Name="SortList">
+                    <ComboBoxItem Content="ПО ВОЗРАСТАНИЮ"></ComboBoxItem>
+                    <ComboBoxItem Content="ПО УБЫВАНИЮ"></ComboBoxItem>
+                </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Content="Filtr: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
-                <ComboBox Width="230"></ComboBox>
+                <ComboBox Width="230" x:Name="FiltrList">
+                    <ComboBoxItem Content="5"></ComboBoxItem>
+                    <ComboBoxItem Content="4"></ComboBoxItem>
+                    <ComboBoxItem Content="3"></ComboBoxItem>
+                    <ComboBoxItem Content="2"></ComboBoxItem>
+                </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Content="Search: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
-                <TextBox Width="230"></TextBox>
+                <TextBox Width="230" x:Name="SearchTb"></TextBox>
             </StackPanel>
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
@@ -37,6 +45,7 @@
                         <GridViewColumn Header="Студент" DisplayMemberBinding="{Binding Student.FIO_Student}" x:Name="StudentColumn" Width="130"></GridViewColumn>
                         <GridViewColumn Header="Дисциплина" DisplayMemberBinding="{Binding Dicipline.Name_Dicipline}" x:Name="DiciplineColumn" Width="150"></GridViewColumn>
                         <GridViewColumn Header="Оценка" DisplayMemberBinding="{Binding Grade}" x:Name="GradeColumn" Width="150"></GridViewColumn>
+                        <GridViewColumn Header="Дата экзамена" DisplayMemberBinding="{Binding Date_Exam}" x:Name="DateColumn" Width="150"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

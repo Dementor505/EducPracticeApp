@@ -1,4 +1,4 @@
-﻿<Page x:Class="EducationAppHabLat.Pages.DiciplinePage"
+﻿<Page x:Class="EducationAppHabLat.Pages.StudentPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:EducationAppHabLat.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1184"
-      Title="DiciplinePage">
+      Title="StudentPage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -25,9 +25,11 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Content="Filtr: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
                 <ComboBox Width="230" x:Name="FiltrList">
-                    <ComboBoxItem Content="меньше 100"></ComboBoxItem>
-                    <ComboBoxItem Content="больше 100 и меньше 200"></ComboBoxItem>
-                    <ComboBoxItem Content="больше 200"></ComboBoxItem>
+                    <ComboBoxItem Content="Прикладная математика"></ComboBoxItem>
+                    <ComboBoxItem Content="Информационные системы и технологии"></ComboBoxItem>
+                    <ComboBoxItem Content="Прикладная информатика"></ComboBoxItem>
+                    <ComboBoxItem Content="Ядерные физика и технологии"></ComboBoxItem>
+                    <ComboBoxItem Content="Бизнес-информатика"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -37,13 +39,13 @@
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
-            <ListView x:Name="DiciplineList">
+            <ListView x:Name="StudentList">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="№" DisplayMemberBinding="{Binding Code_Dicipline}" Width="130"></GridViewColumn>
-                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name_Dicipline}" x:Name="NameColumn" Width="130"></GridViewColumn>
-                        <GridViewColumn Header="Кафедра" DisplayMemberBinding="{Binding Cathedra.Name_Cathedra}" x:Name="CathedraColumn" Width="150"></GridViewColumn>
-                        <GridViewColumn Header="Объём" DisplayMemberBinding="{Binding Space_Dicipline}" x:Name="SpaceColumn" Width="70"></GridViewColumn>
+                        <GridViewColumn Header="Рег номер" DisplayMemberBinding="{Binding Reg_Number}" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FIO_Student}" x:Name="FioColumn" Width="70"></GridViewColumn>
+                        <GridViewColumn Header="Специальность" DisplayMemberBinding="{Binding Speciality.Direction_Speciality}" x:Name="SpecialityColumn" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="Код специальности" DisplayMemberBinding="{Binding Speciality.Number_Speciality}" x:Name="CodeSpecialityColumn" Width="150"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

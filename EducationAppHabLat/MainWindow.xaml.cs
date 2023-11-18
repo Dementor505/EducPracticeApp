@@ -36,6 +36,7 @@ namespace EducationAppHabLat
             EmployeeBtn.Visibility = Visibility.Hidden;
             ExamsBtn.Visibility = Visibility.Hidden;
             DiciplineBtn.Visibility = Visibility.Hidden;
+            StudentBtn.Visibility = Visibility.Hidden;
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -50,6 +51,7 @@ namespace EducationAppHabLat
                 EmployeeBtn.Visibility = Visibility.Visible;
                 ExamsBtn.Visibility = Visibility.Visible;
                 DiciplineBtn.Visibility = Visibility.Visible;
+                StudentBtn.Visibility = Visibility.Visible;
             }
             else
             {
@@ -57,6 +59,7 @@ namespace EducationAppHabLat
                 EmployeeBtn.Visibility = Visibility.Hidden;
                 ExamsBtn.Visibility = Visibility.Hidden;
                 DiciplineBtn.Visibility = Visibility.Hidden;
+                StudentBtn.Visibility = Visibility.Hidden;
             }
         }
 
@@ -68,6 +71,21 @@ namespace EducationAppHabLat
         private void EmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
             Navigation.NextPage(new PageComponent("Сотрудники", new EmployeePage()));
+        }
+
+        private void DiciplineBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Дисциплины", new DiciplinePage()));
+        }
+
+        private void StudentBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Студенты", new StudentPage()));
+        }
+
+        private void ExamsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Экзамены", new ExamPage()));
         }
     }
 }
