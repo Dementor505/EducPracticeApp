@@ -25,13 +25,47 @@ namespace EducationAppHabLat.Windows
             InitializeComponent();
         }
 
-        Student student;
         private void StudentSaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            Student student = new Student();
 
+            student.Reg_Number = Convert.ToInt32(regNumber.Text);
+            int rNumber = int.Parse(regNumber.Text);
+            
+            if (App.myDb.Student.Where(x => x.Reg_Number == rNumber).FirstOrDefault() != null)
+            {
+                AreYouSerious ays = new AreYouSerious();
+                ays.Show();
+                if (App.choiceEdit == true)
+                {
+
+                    foreach (var a in App.myDb.Student)
+                    {
+
+                        if ((a as Student).Reg_Number == student.Reg_Number) App.myDb.Student.Remove(a);
+                    }
+                    App.myDb.SaveChanges();
+
+                    App.myDb.Student.Add(student);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            student.FIO_Student = fioStudent.Text;
+            if (App.myDb.Student.Where(x => x.FIO_Student == fioStudent.Text).FirstOrDefault() != null)
+            {
+                MessageBox.Show("фио уже есть");
+                return;
+            }
+            student.Id_Speciality = Convert.ToInt32(idSpeciality.Text);
             App.myDb.Student.Add(student);
-                App.myDb.SaveChanges();
+            App.myDb.SaveChanges();
 
+            this.Close();
+            App.sp.StudentList.ItemsSource = App.myDb.Student.ToList();
         }
     }
 }
+

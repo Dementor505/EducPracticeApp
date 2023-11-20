@@ -21,6 +21,7 @@ namespace EducationAppHabLat.MyBase
         public int Tab_Number { get; set; }
         public string Auditory { get; set; }
         public Nullable<int> Grade { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Dicipline Dicipline { get; set; }
         public virtual Employee Employee { get; set; }

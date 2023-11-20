@@ -67,6 +67,60 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MyBase\Cathedra.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Claim.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Degree.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Dicipline.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Employee.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Exam.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Faculty.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Post.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Speciality.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Student.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\sysdiagrams.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AreYouSerious.xaml.cs">
+      <DependentUpon>AreYouSerious.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ExamWindow.xaml.cs">
+      <DependentUpon>ExamWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\StudentWindow.xaml.cs">
       <DependentUpon>StudentWindow.xaml</DependentUpon>
     </Compile>
@@ -110,58 +164,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\AreYouSerious.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ExamWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\StudentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyBase\Cathedra.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Claim.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Degree.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Dicipline.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Employee.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Exam.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Faculty.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\MyDataBase.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataBase.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\MyDataBase.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\MyDataBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataBase.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MyBase\Navigation.cs" />
-    <Compile Include="MyBase\Post.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Speciality.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Student.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>

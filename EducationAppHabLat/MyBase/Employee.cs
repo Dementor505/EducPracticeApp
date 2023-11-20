@@ -27,6 +27,7 @@ namespace EducationAppHabLat.MyBase
         public Nullable<decimal> Oklad { get; set; }
         public Nullable<int> Shef { get; set; }
         public Nullable<int> Exp { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Cathedra Cathedra { get; set; }
         public virtual Post Post { get; set; }

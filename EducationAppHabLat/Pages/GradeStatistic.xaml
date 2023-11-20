@@ -35,7 +35,7 @@
                 <TextBlock Text="Search:             (по дисциплине)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="120" HorizontalAlignment="Left"></TextBlock>
                 <TextBox Width="230" x:Name="SearchTb" TextChanged="SearchTb_TextChanged"></TextBox>
             </StackPanel>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
             <ListView Width="1314" x:Name="StudentGrade">

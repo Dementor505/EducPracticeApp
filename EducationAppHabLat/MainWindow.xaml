@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EducationAppHabLat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1314" MinHeight="700" MinWidth="1314" SizeChanged="Window_SizeChanged">
+        Title="MainWindow" Height="700" Width="1324" MinHeight="700" MinWidth="1314" SizeChanged="Window_SizeChanged">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"></ColumnDefinition>
@@ -23,7 +23,7 @@
         <Rectangle Fill="#FF72BAFF" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3"></Rectangle>
         <Border BorderBrush="Black" BorderThickness="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3"></Border>
         <StackPanel Height="600" Width="1184" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Background="#FFB3DAFF">
-            <Frame Height="600" Width="1184" x:Name="MainFrame" HorizontalAlignment="Center" VerticalAlignment="Center" NavigationUIVisibility="Hidden">
+            <Frame Height="600" Width="1194" x:Name="MainFrame" HorizontalAlignment="Center" VerticalAlignment="Center" NavigationUIVisibility="Hidden">
 
             </Frame>
         </StackPanel>

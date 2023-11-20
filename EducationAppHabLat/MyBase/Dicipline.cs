@@ -25,6 +25,7 @@ namespace EducationAppHabLat.MyBase
         public Nullable<int> Space_Dicipline { get; set; }
         public string Name_Dicipline { get; set; }
         public Nullable<int> Id_Cathedra { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Cathedra Cathedra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

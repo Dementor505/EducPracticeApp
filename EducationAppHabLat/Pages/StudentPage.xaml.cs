@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EducationAppHabLat.MyBase;
 
 namespace EducationAppHabLat.Pages
 {
@@ -25,6 +26,7 @@ namespace EducationAppHabLat.Pages
         public StudentPage()
         {
             InitializeComponent();
+            App.sp = this;
 
             StudentList.ItemsSource = App.myDb.Student.ToList();
             Refresh();
@@ -82,6 +84,41 @@ namespace EducationAppHabLat.Pages
         {
             StudentWindow sw = new StudentWindow();
             sw.Show();
+        }
+
+        private void StudentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var student = StudentList.SelectedItem as Student;
+            if (CheckDeleted.IsChecked == true && student != null)
+            {
+                foreach (var a in App.myDb.Student)
+                {
+
+                    if ((a as Student).Reg_Number == student.Reg_Number)
+                        a.IsDeleted = true;
+                }
+            }
+            StudentList.ItemsSource = App.myDb.Student.ToList().Where(x => x.IsDeleted == false);
+        }
+
+        private void StudentList_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            StudentWindow sw = new StudentWindow();
+
+            if (CheckDeleted.IsChecked == false)
+            {
+                var student = StudentList.SelectedItem as Student;
+                foreach (var a in App.myDb.Student)
+                {
+                    if ((a as Student).FIO_Student == student.FIO_Student && student != null)
+                    {
+                        sw.fioStudent.Text = student.FIO_Student;
+                        sw.idSpeciality.Text = Convert.ToString(student.Id_Speciality);
+                        sw.regNumber.Text = Convert.ToString(student.Reg_Number);
+                    }
+                }
+                sw.Show();
+            }
         }
     }
 }

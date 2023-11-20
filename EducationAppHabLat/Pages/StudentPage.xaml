@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EducationAppHabLat.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1184"
+      d:DesignHeight="450" d:DesignWidth="1194"
       Title="StudentPage">
 
     <Grid>
@@ -37,9 +37,13 @@
                 <TextBox Width="230" x:Name="SearchTb" TextChanged="SearchTb_TextChanged"></TextBox>
             </StackPanel>
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD" x:Name="StudentAddBtn" Click="StudentAddBtn_Click"></Button>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label>Удаление</Label>
+                <CheckBox x:Name="CheckDeleted" VerticalAlignment="Center" HorizontalAlignment="Center"></CheckBox>
+            </StackPanel>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1" Margin="0,1,0,-1">
-            <ListView x:Name="StudentList">
+            <ListView x:Name="StudentList" SelectionChanged="StudentList_SelectionChanged" PreviewMouseDoubleClick="StudentList_PreviewMouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Рег номер" DisplayMemberBinding="{Binding Reg_Number}" Width="130"></GridViewColumn>

@@ -4,29 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f26119fa182c4559a4fb750dd435d373" Name="Diagram1">
-        <EntityTypeShape EntityType="WPFDATABASEModel.Cathedra" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Claim" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Degree" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Dicipline" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Employee" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Exam" Width="1.5" PointX="9.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Faculty" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Post" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Speciality" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WPFDATABASEModel.Student" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Cathedra_Faculty" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Dicipline_Cathedra" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Employee_Cathedra" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Speciality_Cathedra" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Claim_Dicipline" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Claim_Speciality" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Post_Degree" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Exam_Dicipline" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Employee_Post" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Exam_Employee" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Exam_Student" ManuallyRouted="false" />
-        <AssociationConnector Association="WPFDATABASEModel.FK_Student_Speciality" ManuallyRouted="false" />
+      <Diagram DiagramId="07ed9036ba1141a7ae231aee7a9ad436" Name="Diagram1">
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Cathedra" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Claim" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Degree" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Dicipline" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Employee" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Exam" Width="1.5" PointX="9.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Faculty" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Post" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Speciality" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.Student" Width="1.5" PointX="7.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Practic321P_Lat_and_Hab4Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Cathedra_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Dicipline_Cathedra" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Employee_Cathedra" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Speciality_Cathedra" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Claim_Dicipline" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Claim_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Post_Degree" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Exam_Dicipline" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Employee_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Exam_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Exam_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="Practic321P_Lat_and_Hab4Model.FK_Student_Speciality" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
