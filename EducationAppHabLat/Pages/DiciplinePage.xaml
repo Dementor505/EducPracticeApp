@@ -24,15 +24,14 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,10,0">
                 <TextBlock Text="Filtr:         (по объёму)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="90" HorizontalAlignment="Left"></TextBlock>
-                <ComboBox Width="230" x:Name="FiltrList">
-                    <ComboBoxItem Content="меньше 100"></ComboBoxItem>
-                    <ComboBoxItem Content="больше 100 и меньше 200"></ComboBoxItem>
-                    <ComboBoxItem Content="больше 200"></ComboBoxItem>
+                <ComboBox Width="230" x:Name="FiltrList" SelectionChanged="FiltrList_SelectionChanged">
+                    <ComboBoxItem Content="меньше 200" TabIndex="1"></ComboBoxItem>
+                    <ComboBoxItem Content="больше 200" TabIndex="2"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Search: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
-                <TextBox Width="230" x:Name="SearchTb"></TextBox>
+                <TextBlock Text="Search:              (по названию)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="105" HorizontalAlignment="Left"></TextBlock>
+                <TextBox Width="230" x:Name="SearchTb" TextChanged="SearchTb_TextChanged"></TextBox>
             </StackPanel>
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>

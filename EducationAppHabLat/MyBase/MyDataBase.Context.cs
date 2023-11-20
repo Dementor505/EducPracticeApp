@@ -13,10 +13,10 @@ namespace EducationAppHabLat.MyBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Practic321P_Lat_and_Hab4Entities : DbContext
+    public partial class WPFDATABASEEntities : DbContext
     {
-        public Practic321P_Lat_and_Hab4Entities()
-            : base("name=Practic321P_Lat_and_Hab4Entities")
+        public WPFDATABASEEntities()
+            : base("name=WPFDATABASEEntities")
         {
         }
     
@@ -35,6 +35,5 @@ namespace EducationAppHabLat.MyBase
         public virtual DbSet<Post> Post { get; set; }
         public virtual DbSet<Speciality> Speciality { get; set; }
         public virtual DbSet<Student> Student { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

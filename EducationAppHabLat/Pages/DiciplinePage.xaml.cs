@@ -34,21 +34,40 @@ namespace EducationAppHabLat.Pages
         {
             IEnumerable<Dicipline> SortedDicipline = App.myDb.Dicipline;
 
-            if(SortList.SelectedIndex == 0)
+            if (SortList.SelectedIndex == 0)
             {
                 SortedDicipline = SortedDicipline.OrderBy(x => x.Name_Dicipline);
             }
-            else if(SortList.SelectedIndex == 1)
+            else if (SortList.SelectedIndex == 1)
             {
                 SortedDicipline = SortedDicipline.OrderByDescending(x => x.Name_Dicipline);
             }
 
 
+            if (FiltrList.SelectedIndex == 0)
+                SortedDicipline = SortedDicipline.Where(x => x.Space_Dicipline <= 200);
+            if (FiltrList.SelectedIndex == 1)
+                SortedDicipline = SortedDicipline.Where(x => x.Space_Dicipline >= 200);
+
+            if (SearchTb.Text != null)
+            {
+                SortedDicipline = SortedDicipline.Where(x => x.Name_Dicipline.ToLower().Contains(SearchTb.Text.ToLower()));
+            }
 
             DiciplineList.ItemsSource = SortedDicipline.ToList();
         }
 
         private void SortList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void FiltrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
         }

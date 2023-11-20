@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EducationAppHabLat.MyBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,49 @@ namespace EducationAppHabLat.Pages
             InitializeComponent();
 
             EmployeeList.ItemsSource = App.myDb.Employee.ToList();
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            IEnumerable<Employee> SortedDicipline = App.myDb.Employee;
+
+            if (SortList.SelectedIndex == 0)
+            {
+                SortedDicipline = SortedDicipline.OrderBy(x => x.Surname);
+            }
+            else if (SortList.SelectedIndex == 1)
+            {
+                SortedDicipline = SortedDicipline.OrderByDescending(x => x.Surname);
+            }
+
+
+            if (FiltrList.SelectedIndex == 1)
+                SortedDicipline = SortedDicipline.Where(x => x.Oklad <= 30000);
+            if (FiltrList.SelectedIndex == 0)
+                SortedDicipline = SortedDicipline.Where(x => x.Oklad >= 30000);
+
+            if (SearchTb.Text != null)
+            {
+                SortedDicipline = SortedDicipline.Where(x => x.Post.Name_Post.ToLower().Contains(SearchTb.Text.ToLower()));
+            }
+
+            EmployeeList.ItemsSource = SortedDicipline.ToList();
+        }
+
+        private void FiltrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SortList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

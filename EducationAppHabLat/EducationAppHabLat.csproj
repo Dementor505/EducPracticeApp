@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\StudentWindow.xaml.cs">
+      <DependentUpon>StudentWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,56 +110,57 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\StudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyBase\Cathedra.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Claim.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Degree.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Dicipline.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Employee.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Exam.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Faculty.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Navigation.cs" />
     <Compile Include="MyBase\Post.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Speciality.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Student.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\StudyBase.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudyBase.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\StudyBase.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudyBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\StudyBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudyBase.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\sysdiagrams.cs">
-      <DependentUpon>StudyBase.tt</DependentUpon>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
@@ -196,12 +200,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="MyBase\StudyBase.edmx">
+    <EntityDeploy Include="MyBase\MyDataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StudyBase.Designer.cs</LastGenOutput>
+      <LastGenOutput>MyDataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MyBase\StudyBase.edmx.diagram">
-      <DependentUpon>StudyBase.edmx</DependentUpon>
+    <None Include="MyBase\MyDataBase.edmx.diagram">
+      <DependentUpon>MyDataBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -214,22 +218,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Components\Arrow.png" />
-    <Content Include="MyBase\StudyBase.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>StudyBase.Context.cs</LastGenOutput>
-      <DependentUpon>StudyBase.edmx</DependentUpon>
-    </Content>
-    <Content Include="MyBase\StudyBase.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StudyBase.edmx</DependentUpon>
-      <LastGenOutput>StudyBase.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MyClass\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MyBase\MyDataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyDataBase.edmx</DependentUpon>
+      <LastGenOutput>MyDataBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MyBase\MyDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyDataBase.edmx</DependentUpon>
+      <LastGenOutput>MyDataBase.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

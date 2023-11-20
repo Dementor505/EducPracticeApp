@@ -16,22 +16,22 @@
 
         <StackPanel Background="#FF72BAFF" Grid.Row="0" Orientation="Horizontal">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Sort: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
-                <ComboBox Width="230" x:Name="SortList">
+                <TextBlock Text="Sort:       (по ФИО)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></TextBlock>
+                <ComboBox Width="230" x:Name="SortList" SelectionChanged="SortList_SelectionChanged">
                     <ComboBoxItem Content="ПО ВОЗРАСТАНИЮ"></ComboBoxItem>
                     <ComboBoxItem Content="ПО УБЫВАНИЮ"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Filtr: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
-                <ComboBox Width="230" x:Name="FiltrList">
+                <TextBlock Text="Filtr:         (по зарплате)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="97" HorizontalAlignment="Left"></TextBlock>
+                <ComboBox Width="230" x:Name="FiltrList" SelectionChanged="FiltrList_SelectionChanged">
                     <ComboBoxItem Content="Больше 30.тыс"></ComboBoxItem>
                     <ComboBoxItem Content="Меньше 30.тыс"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Label Content="Search: " FontFamily="Elephant" FontSize="15" Width="70" HorizontalAlignment="Left"></Label>
-                <TextBox Width="230" x:Name="SearchTb"></TextBox>
+                <TextBlock Text="Search:                (по специальности)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="140" HorizontalAlignment="Left"></TextBlock>
+                <TextBox Width="230" x:Name="SearchTb" TextChanged="SearchTb_TextChanged"></TextBox>
             </StackPanel>
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
