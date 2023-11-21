@@ -82,10 +82,7 @@ namespace EducationAppHabLat.Pages
         Student student;
         public void StudentAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(CheckDeleted.Checked == false)
-            {
                 Navigation.NextPage(new PageComponent("Add", new editStudentPage()));
-            }
         }
 
         private void StudentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -105,9 +102,11 @@ namespace EducationAppHabLat.Pages
         }
         private void StudentList_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            App.selectStudent = StudentList.SelectedItem as Student;
-            Navigation.NextPage(new PageComponent("edit", new editStudentPage()));
-
+            if (CheckDeleted.IsChecked == false)
+            {
+                App.selectStudent = StudentList.SelectedItem as Student;
+                Navigation.NextPage(new PageComponent("edit", new editStudentPage()));
+            }
         }
 
         private void DeleteListStudent_Click(object sender, RoutedEventArgs e)
