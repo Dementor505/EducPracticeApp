@@ -16,14 +16,16 @@ namespace EducationAppHabLat
     public partial class App : Application
     {
         public static bool isAdmin = false;
-        public static  Practic321P_Lat_and_Hab4Entities4 myDb = new Practic321P_Lat_and_Hab4Entities4();
+        public static  DataBaseEndEntities myDb = new DataBaseEndEntities();
 
         public static StudentPage sp = new StudentPage();
 
         public static bool choiceEdit;
         //public static bool isEdit;
 
-         ////public static var studentic;
+        ////public static var studentic;
+
+        public static Student selectStudent;
     }
 }
 

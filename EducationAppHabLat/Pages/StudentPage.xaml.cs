@@ -28,7 +28,7 @@ namespace EducationAppHabLat.Pages
             InitializeComponent();
             App.sp = this;
 
-            StudentList.ItemsSource = App.myDb.Student.ToList();
+            StudentList.ItemsSource = App.myDb.Student.ToList().Where(x => x.IsDeleted == false);
             Refresh();
         }
 
@@ -61,7 +61,7 @@ namespace EducationAppHabLat.Pages
                 SortedDicipline = SortedDicipline.Where(x => x.Speciality.Direction_Speciality.ToLower().Contains(SearchTb.Text.ToLower()));
             }
 
-            StudentList.ItemsSource = SortedDicipline.ToList();
+            StudentList.ItemsSource = SortedDicipline.ToList().Where(x => x.IsDeleted == false);
         }
 
         private void FiltrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -82,21 +82,10 @@ namespace EducationAppHabLat.Pages
         Student student;
         public void StudentAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
-            NavigationEdit.NextPage(new PageComponent("Добавление",new editStudentPage(new Student(), "add")));
-
-            //editStudentPage eSP = new editStudentPage();
-            //var student = StudentList.SelectedItem as Student;
-            //foreach (var a in App.myDb.Student)
-            //{
-            //    if ((a as Student).FIO_Student == student.FIO_Student && student != null)
-            //    {
-            //        eSP.fioStudent.Text = student.FIO_Student;
-            //        eSP.idSpeciality.Text = Convert.ToString(student.Id_Speciality);
-            //        eSP.regNumber.Text = Convert.ToString(student.Reg_Number);
-            //    }
-            //}
-            StudentList.ItemsSource = App.myDb.Student.ToList();
+            if(CheckDeleted.Checked == false)
+            {
+                Navigation.NextPage(new PageComponent("Add", new editStudentPage()));
+            }
         }
 
         private void StudentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -108,32 +97,22 @@ namespace EducationAppHabLat.Pages
                 {
 
                     if ((a as Student).Reg_Number == student.Reg_Number)
-                        a.IsDeleted = true;
+                        a.IsDeleted = Convert.ToBoolean(1);
                 }
+                App.myDb.SaveChanges();
             }
             StudentList.ItemsSource = App.myDb.Student.ToList().Where(x => x.IsDeleted == false);
         }
-
         private void StudentList_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            StudentWindow sw = new StudentWindow(new Student(), "redact");
+            App.selectStudent = StudentList.SelectedItem as Student;
+            Navigation.NextPage(new PageComponent("edit", new editStudentPage()));
 
-            if (CheckDeleted.IsChecked == false)
-            {
-                var student = StudentList.SelectedItem as Student;
-                foreach (var a in App.myDb.Student)
-                {
-                    if ((a as Student).FIO_Student == student.FIO_Student && student != null)
-                    {
-                        sw.fioStudent.Text = student.FIO_Student;
-                        sw.idSpeciality.Text = Convert.ToString(student.Id_Speciality);
-                        sw.regNumber.Text = Convert.ToString(student.Reg_Number);
-                    }
-                }
-                sw.Show();
-            }
-            StudentList.ItemsSource = App.myDb.Student.ToList();
-            
+        }
+
+        private void DeleteListStudent_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeleteLists.DeleteStudent());
         }
     }
 }

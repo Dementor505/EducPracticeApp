@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DeleteLists\DeleteStudent.xaml.cs">
+      <DependentUpon>DeleteStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyBase\Cathedra.cs">
       <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
@@ -112,21 +115,13 @@
     <Compile Include="MyBase\Student.cs">
       <DependentUpon>MyDataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="MyBase\sysdiagrams.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AreYouSerious.xaml.cs">
-      <DependentUpon>AreYouSerious.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\editStudentPage.xaml.cs">
+    <Compile Include="EditAdd Pages\editStudentPage.xaml.cs">
       <DependentUpon>editStudentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ExamWindow.xaml.cs">
-      <DependentUpon>ExamWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\StudentWindow.xaml.cs">
-      <DependentUpon>StudentWindow.xaml</DependentUpon>
-    </Compile>
+    <Page Include="DeleteLists\DeleteStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -167,19 +162,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\AreYouSerious.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\editStudentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ExamWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\StudentWindow.xaml">
+    <Page Include="EditAdd Pages\editStudentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

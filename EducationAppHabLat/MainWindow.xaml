@@ -44,7 +44,6 @@
             <Button x:Name="ExamsBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Экзамены" Click="ExamsBtn_Click"></Button>
             <Button x:Name="DiciplineBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Дисциплины" Click="DiciplineBtn_Click"></Button>
             <Button x:Name="StudentBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Студенты" Click="StudentBtn_Click"></Button>
-            <Frame Height="230" BorderBrush="Black" BorderThickness="3"  x:Name="editFrame" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130"></Frame>
         </StackPanel>
     </Grid>
 </Window>

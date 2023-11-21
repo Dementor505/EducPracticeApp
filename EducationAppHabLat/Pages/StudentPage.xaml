@@ -36,7 +36,10 @@
                 <TextBlock Text="Search:            (по спец-ти)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="90" HorizontalAlignment="Left"></TextBlock>
                 <TextBox Width="230" x:Name="SearchTb" TextChanged="SearchTb_TextChanged"></TextBox>
             </StackPanel>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD" x:Name="StudentAddBtn" Click="StudentAddBtn_Click"></Button>
+            <StackPanel VerticalAlignment="Center">
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD" x:Name="StudentAddBtn" Click="StudentAddBtn_Click"></Button>
+                <Button Content="DELETED" VerticalAlignment="Center" Width="100" Margin="30,0,0,0" x:Name="DeleteListStudent" Click="DeleteListStudent_Click"></Button>
+            </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Label>Удаление</Label>
                 <CheckBox x:Name="CheckDeleted" VerticalAlignment="Center" HorizontalAlignment="Center"></CheckBox>
@@ -47,8 +50,8 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Рег номер" DisplayMemberBinding="{Binding Reg_Number}" Width="130"></GridViewColumn>
-                        <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FIO_Student}" x:Name="FioColumn" Width="70"></GridViewColumn>
-                        <GridViewColumn Header="Специальность" DisplayMemberBinding="{Binding Speciality.Direction_Speciality}" x:Name="SpecialityColumn" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FIO_Student}" x:Name="FioColumn" Width="150"></GridViewColumn>
+                        <GridViewColumn Header="Специальность" DisplayMemberBinding="{Binding Speciality.Direction_Speciality}" x:Name="SpecialityColumn" Width="230"></GridViewColumn>
                         <GridViewColumn Header="Код специальности" DisplayMemberBinding="{Binding Speciality.Number_Speciality}" x:Name="CodeSpecialityColumn" Width="150"></GridViewColumn>
                     </GridView>
                 </ListView.View>
