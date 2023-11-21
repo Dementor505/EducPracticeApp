@@ -28,6 +28,25 @@ namespace EducationAppHabLat.MyBase
         }
     }
 
+    static class NavigationEdit
+    {
+        private static List<PageComponent> components = new List<PageComponent>();
+        public static MainWindow mainWindow;
+
+        public static void NextPage(PageComponent pageComponent)
+        {
+            components.Add(pageComponent);
+            Update(pageComponent);
+        }
+
+        private static void Update(PageComponent pageComponent)
+        {
+            //mainWindow.LableName.Content = pageComponent.Title;
+            //mainWindow.BtnNext.Visibility = components.Count() > 1 ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
+            //mainWindow.BtnBack.Visibility = App.isAdmin ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
+            mainWindow.editFrame.Navigate(pageComponent.Page);
+        }
+    }
 
     class PageComponent
     {
@@ -39,5 +58,6 @@ namespace EducationAppHabLat.MyBase
             Page = page;
         }
     }
+
 }
 

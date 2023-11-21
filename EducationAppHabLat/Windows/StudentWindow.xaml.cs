@@ -1,7 +1,9 @@
 ﻿using EducationAppHabLat.MyBase;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +14,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
+using EducationAppHabLat.MyBase;
+using System.Windows.Navigation;
+using EducationAppHabLat.Pages;
 
 namespace EducationAppHabLat.Windows
 {
@@ -20,51 +26,56 @@ namespace EducationAppHabLat.Windows
     /// </summary>
     public partial class StudentWindow : Window
     {
-        public StudentWindow()
+        static string connectionString = "Data Source=sql-ser-larisa\\serv1215;Initial Catalog=Practic321P_Lat_and_Hab4;User Id=;Password=;";
+        SqlConnection connection = new SqlConnection(connectionString);
+        public Student student;
+        public string action;
+        public StudentWindow(Student _student, string _action)
         {
             InitializeComponent();
+            student = _student;
+            action = _action;
         }
 
-        private void StudentSaveBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Student student = new Student();
+        public void StudentSaveBtn_Click(object sender, RoutedEventArgs e)
+        {   
+            StudentPage sp = new StudentPage();
 
-            student.Reg_Number = Convert.ToInt32(regNumber.Text);
-            int rNumber = int.Parse(regNumber.Text);
+            bool errors = false;
             
-            if (App.myDb.Student.Where(x => x.Reg_Number == rNumber).FirstOrDefault() != null)
+            if (idSpeciality.Text == "0" || regNumber.Text == "0" || fioStudent.Text == "")
             {
-                AreYouSerious ays = new AreYouSerious();
-                ays.Show();
-                if (App.choiceEdit == true)
+                errors = true;
+                MessageBox.Show("Заполните обязательные данные!");
+            }
+            if (regNumber.Text.Length < 5)
+            {
+                errors = true;
+                MessageBox.Show("Длина таб.номера должна быть 5 символа!");
+            }
+            if (App.myDb.Student.Any(x => x.Reg_Number == student.Reg_Number) && action == "add")
+            {
+                errors = true;
+                MessageBox.Show("Такой таб.номер уже есть!");
+            }
+            if (!errors)
+            {
+                if (action == "add")
                 {
-
-                    foreach (var a in App.myDb.Student)
+                    App.myDb.Student.Add(new Student()
                     {
-
-                        if ((a as Student).Reg_Number == student.Reg_Number) App.myDb.Student.Remove(a);
-                    }
-                    App.myDb.SaveChanges();
-
-                    App.myDb.Student.Add(student);
+                        Reg_Number = Convert.ToInt32(regNumber.Text),
+                        FIO_Student = fioStudent.Text,
+                        Id_Speciality = Convert.ToInt32(idSpeciality.Text),
+                        IsDeleted = false
+                    });
                 }
-                else
-                {
-                    return;
-                }
-            }
-            student.FIO_Student = fioStudent.Text;
-            if (App.myDb.Student.Where(x => x.FIO_Student == fioStudent.Text).FirstOrDefault() != null)
-            {
-                MessageBox.Show("фио уже есть");
-                return;
-            }
-            student.Id_Speciality = Convert.ToInt32(idSpeciality.Text);
-            App.myDb.Student.Add(student);
-            App.myDb.SaveChanges();
 
-            this.Close();
-            App.sp.StudentList.ItemsSource = App.myDb.Student.ToList();
+                MessageBox.Show("Сохранено!");
+                App.myDb.SaveChanges();
+                
+                
+            }
         }
     }
 }

@@ -39,11 +39,12 @@
         <Label Grid.Row="4" Grid.Column="0" x:Name="Statistic" Height="30" VerticalAlignment="Bottom" FontSize="15"></Label>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="3">
-            <Button x:Name="GradeBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,100,0,0" Content="Оценки" Click="GradeBtn_Click"></Button>
+            <Button x:Name="GradeBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,60,0,0" Content="Оценки" Click="GradeBtn_Click"></Button>
             <Button x:Name="EmployeeBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Сотрудники" Click="EmployeeBtn_Click"></Button>
             <Button x:Name="ExamsBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Экзамены" Click="ExamsBtn_Click"></Button>
             <Button x:Name="DiciplineBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Дисциплины" Click="DiciplineBtn_Click"></Button>
             <Button x:Name="StudentBtn" x:FieldModifier="public" Width="115" Height="50" Margin="0,10,0,0" Content="Студенты" Click="StudentBtn_Click"></Button>
+            <Frame Height="230" BorderBrush="Black" BorderThickness="3"  x:Name="editFrame" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130"></Frame>
         </StackPanel>
     </Grid>
 </Window>

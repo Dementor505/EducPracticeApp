@@ -80,10 +80,23 @@ namespace EducationAppHabLat.Pages
         }
 
         Student student;
-        private void StudentAddBtn_Click(object sender, RoutedEventArgs e)
+        public void StudentAddBtn_Click(object sender, RoutedEventArgs e)
         {
-            StudentWindow sw = new StudentWindow();
-            sw.Show();
+            MainWindow mw = new MainWindow();
+            NavigationEdit.NextPage(new PageComponent("Добавление",new editStudentPage(new Student(), "add")));
+
+            //editStudentPage eSP = new editStudentPage();
+            //var student = StudentList.SelectedItem as Student;
+            //foreach (var a in App.myDb.Student)
+            //{
+            //    if ((a as Student).FIO_Student == student.FIO_Student && student != null)
+            //    {
+            //        eSP.fioStudent.Text = student.FIO_Student;
+            //        eSP.idSpeciality.Text = Convert.ToString(student.Id_Speciality);
+            //        eSP.regNumber.Text = Convert.ToString(student.Reg_Number);
+            //    }
+            //}
+            StudentList.ItemsSource = App.myDb.Student.ToList();
         }
 
         private void StudentList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -103,7 +116,7 @@ namespace EducationAppHabLat.Pages
 
         private void StudentList_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            StudentWindow sw = new StudentWindow();
+            StudentWindow sw = new StudentWindow(new Student(), "redact");
 
             if (CheckDeleted.IsChecked == false)
             {
@@ -119,6 +132,8 @@ namespace EducationAppHabLat.Pages
                 }
                 sw.Show();
             }
+            StudentList.ItemsSource = App.myDb.Student.ToList();
+            
         }
     }
 }

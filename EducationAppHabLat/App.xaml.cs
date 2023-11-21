@@ -21,6 +21,9 @@ namespace EducationAppHabLat
         public static StudentPage sp = new StudentPage();
 
         public static bool choiceEdit;
+        //public static bool isEdit;
+
+         ////public static var studentic;
     }
 }
 
