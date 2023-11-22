@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using EducationAppHabLat.MyBase;
+
 
 namespace EducationAppHabLat.Pages
 {
@@ -79,7 +79,6 @@ namespace EducationAppHabLat.Pages
             Refresh();
         }
 
-        Student student;
         public void StudentAddBtn_Click(object sender, RoutedEventArgs e)
         {
                 Navigation.NextPage(new PageComponent("Add", new editStudentPage()));

@@ -26,6 +26,8 @@ namespace EducationAppHabLat
         ////public static var studentic;
 
         public static Student selectStudent;
+        public static Exam selectExam;
+        public static Employee selectEmployee;
     }
 }
 

@@ -22,8 +22,6 @@ namespace EducationAppHabLat.Windows
     /// </summary>
     public partial class editStudentPage : Page
     {
-        StudentPage sp = new StudentPage();
-        public string action;
         public editStudentPage()
         {
             InitializeComponent();

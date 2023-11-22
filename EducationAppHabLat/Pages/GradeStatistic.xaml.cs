@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EducationAppHabLat.EditAdd_Pages;
 using EducationAppHabLat.MyBase;
+using EducationAppHabLat.Windows;
 
 namespace EducationAppHabLat.Pages
 {
@@ -26,7 +28,7 @@ namespace EducationAppHabLat.Pages
         {
             InitializeComponent();
 
-            StudentGrade.ItemsSource = App.myDb.Exam.ToList();
+            StudentGrade.ItemsSource = App.myDb.Exam.ToList().Where(x => x.IsDeleted == false);
             Refresh();
         }
 
@@ -36,11 +38,11 @@ namespace EducationAppHabLat.Pages
 
             if (SortList.SelectedIndex == 0)
             {
-                SortedDicipline = SortedDicipline.OrderBy(x => x.Reg_Number);
+                SortedDicipline = SortedDicipline.OrderBy(x => x.Id_Exam);
             }
             else if (SortList.SelectedIndex == 1)
             {
-                SortedDicipline = SortedDicipline.OrderByDescending(x => x.Reg_Number);
+                SortedDicipline = SortedDicipline.OrderByDescending(x => x.Id_Exam);
             }
 
             if (FiltrList.SelectedIndex == 0)
@@ -57,7 +59,7 @@ namespace EducationAppHabLat.Pages
                 SortedDicipline = SortedDicipline.Where(x => x.Dicipline.Name_Dicipline.ToLower().Contains(SearchTb.Text.ToLower()));
             }
 
-            StudentGrade.ItemsSource = SortedDicipline.ToList();
+            StudentGrade.ItemsSource = SortedDicipline.ToList().Where(x => x.IsDeleted == false);
         }
 
         private void FiltrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -73,6 +75,41 @@ namespace EducationAppHabLat.Pages
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void StudentGrade_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var studentGrade = StudentGrade.SelectedItem as Exam;
+            if (CheckDeleted.IsChecked == true && studentGrade != null)
+            {
+                foreach (var a in App.myDb.Exam)
+                {
+
+                    if ((a as Exam).Id_Exam == studentGrade.Id_Exam)
+                        a.IsDeleted = Convert.ToBoolean(1);
+                }
+                App.myDb.SaveChanges();
+            }
+            StudentGrade.ItemsSource = App.myDb.Exam.ToList().Where(x => x.IsDeleted == false);
+        }
+
+        private void GradeAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Add", new editGradePage()));
+        }
+
+        private void DeleteListGrade_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeleteLists.DeleteGrade());
+        }
+
+        private void StudentGrade_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (CheckDeleted.IsChecked == false)
+            {
+                App.selectExam = StudentGrade.SelectedItem as Exam;
+                Navigation.NextPage(new PageComponent("edit", new EditAdd_Pages.editGradePage()));
+            }
         }
     }
 }

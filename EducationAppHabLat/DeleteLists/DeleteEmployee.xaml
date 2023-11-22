@@ -1,0 +1,29 @@
+﻿<Page x:Class="EducationAppHabLat.DeleteLists.DeleteEmployee"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationAppHabLat.DeleteLists"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DeleteEmployee">
+
+    <Grid>
+        <StackPanel>
+            <Button Width="100" Height="30" Content="BACK" x:Name="BackBtnEmployee" Click="BackBtnEmployee_Click"></Button>
+            <ListView x:Name="EmployeeList" MouseDoubleClick="EmployeeList_MouseDoubleClick">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Табельный номер" DisplayMemberBinding="{Binding Tab_Number}" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding Surname}" x:Name="FIOColumn" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="Специальность" DisplayMemberBinding="{Binding Post.Name_Post}" x:Name="PostColumn" Width="150"></GridViewColumn>
+                        <GridViewColumn Header="Зарплата" DisplayMemberBinding="{Binding Oklad}" x:Name="MoneyColumn" Width="70"></GridViewColumn>
+                        <GridViewColumn Header="Опыт зав.каф" DisplayMemberBinding="{Binding Exp}" x:Name="ExpColumn" Width="90"></GridViewColumn>
+                        <GridViewColumn Header="Название кафедры" DisplayMemberBinding="{Binding Cathedra.Name_Cathedra}" x:Name="NameCathedraColumn" Width="150"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="3"></Border>
+        </StackPanel>
+    </Grid>
+</Page>

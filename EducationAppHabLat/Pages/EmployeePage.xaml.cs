@@ -1,4 +1,5 @@
-﻿using EducationAppHabLat.MyBase;
+﻿using EducationAppHabLat.EditAdd_Pages;
+using EducationAppHabLat.MyBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,41 @@ namespace EducationAppHabLat.Pages
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var employee = EmployeeList.SelectedItem as Employee;
+            if (CheckDeleted.IsChecked == true && employee != null)
+            {
+                foreach (var a in App.myDb.Employee)
+                {
+
+                    if ((a as Employee).Tab_Number == employee.Tab_Number)
+                        a.IsDeleted = Convert.ToBoolean(1);
+                }
+                App.myDb.SaveChanges();
+            }
+            EmployeeList.ItemsSource = App.myDb.Employee.ToList().Where(x => x.IsDeleted == false);
+        }
+
+        private void EmployeeList_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (CheckDeleted.IsChecked == false)
+            {
+                App.selectEmployee = EmployeeList.SelectedItem as Employee;
+                Navigation.NextPage(new PageComponent("edit", new EditAdd_Pages.editEmployeePage()));
+            }
+        }
+
+        private void EmployeeAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Add", new editEmployeePage()));
+        }
+
+        private void DeleteListEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeleteLists.DeleteEmployee());
         }
     }
 }

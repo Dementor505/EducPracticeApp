@@ -67,8 +67,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DeleteLists\DeleteEmployee.xaml.cs">
+      <DependentUpon>DeleteEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteLists\DeleteGrade.xaml.cs">
+      <DependentUpon>DeleteGrade.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteLists\DeleteStudent.xaml.cs">
       <DependentUpon>DeleteStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditAdd Pages\editEmployeePage.xaml.cs">
+      <DependentUpon>editEmployeePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditAdd Pages\editGradePage.xaml.cs">
+      <DependentUpon>editGradePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyBase\Cathedra.cs">
       <DependentUpon>MyDataBase.tt</DependentUpon>
@@ -118,7 +130,23 @@
     <Compile Include="EditAdd Pages\editStudentPage.xaml.cs">
       <DependentUpon>editStudentPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="DeleteLists\DeleteEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteLists\DeleteGrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DeleteLists\DeleteStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditAdd Pages\editEmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditAdd Pages\editGradePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

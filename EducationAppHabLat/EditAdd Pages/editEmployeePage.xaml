@@ -1,0 +1,39 @@
+﻿<Page x:Class="EducationAppHabLat.EditAdd_Pages.editEmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationAppHabLat.EditAdd_Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="editEmployeePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Content="Таб номер" HorizontalAlignment="Right"></Label>
+            <Label Content="Кафедра" HorizontalAlignment="Right"></Label>
+            <Label Content="Сотрудник" HorizontalAlignment="Right"></Label>
+            <Label Content="Профессия" HorizontalAlignment="Right"></Label>
+            <Label Content="Заработная плата" HorizontalAlignment="Right"></Label>
+            <Label Content="Шеф" HorizontalAlignment="Right"></Label>
+            <Label Content="Опыт в зав кафедре" HorizontalAlignment="Right"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="tabNumber" BorderBrush="Black" BorderThickness="3" Width="100"></TextBox>
+            <TextBox x:Name="cathedra" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox x:Name="employeeFio" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox x:Name="post" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox x:Name="money" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox x:Name="mainPerson" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox x:Name="expMainCathedra" BorderBrush="Black" BorderThickness="3"></TextBox>
+        </StackPanel>
+        <Button x:Name="GradeSaveBtn" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="0,230,0,0" Width="100" Height="30" Content="Сохранить" Click="GradeSaveBtn_Click">
+
+        </Button>
+
+    </Grid>
+</Page>
