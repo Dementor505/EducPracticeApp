@@ -16,7 +16,7 @@ namespace EducationAppHabLat
     public partial class App : Application
     {
         public static bool isAdmin = false;
-        public static  DataBaseEndEntities myDb = new DataBaseEndEntities();
+        public static  Practic321P_Lat_and_Hab4Entities5 myDb = new Practic321P_Lat_and_Hab4Entities5();
 
         public static StudentPage sp = new StudentPage();
 

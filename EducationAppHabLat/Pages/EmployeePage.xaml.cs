@@ -26,6 +26,11 @@ namespace EducationAppHabLat.Pages
         {
             InitializeComponent();
 
+            foreach (var a in App.myDb.Employee)
+            {
+                if (a.Exp == null) a.Exp = 0;
+            }
+
             EmployeeList.ItemsSource = App.myDb.Employee.ToList();
             Refresh();
         }

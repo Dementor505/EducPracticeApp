@@ -82,51 +82,6 @@
     <Compile Include="EditAdd Pages\editGradePage.xaml.cs">
       <DependentUpon>editGradePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyBase\Cathedra.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Claim.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Degree.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Dicipline.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Employee.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Exam.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Faculty.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\MyDataBase.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataBase.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\MyDataBase.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\MyDataBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataBase.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Post.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Speciality.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MyBase\Student.cs">
-      <DependentUpon>MyDataBase.tt</DependentUpon>
-    </Compile>
     <Compile Include="EditAdd Pages\editStudentPage.xaml.cs">
       <DependentUpon>editStudentPage.xaml</DependentUpon>
     </Compile>
@@ -196,7 +151,55 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyBase\Cathedra.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Claim.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Degree.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Dicipline.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Employee.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Exam.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Faculty.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\MyDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDataBase.edmx</DependentUpon>
+    </Compile>
     <Compile Include="MyBase\Navigation.cs" />
+    <Compile Include="MyBase\Post.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Speciality.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\Student.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyBase\sysdiagrams.cs">
+      <DependentUpon>MyDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>

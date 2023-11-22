@@ -28,16 +28,24 @@ namespace EducationAppHabLat.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(LoginTb.Text == "Dima" && PasswordPb.Password == "12345")
+            try
             {
-                MessageBox.Show("Добро пожаловать АДМИН =)");
-                App.isAdmin = true;
+                if (App.myDb.Employee.Where(x => x.Tab_Number == Convert.ToInt32(LoginTb.Text)).FirstOrDefault() != null && PasswordPb.Password == "000")
+                {
+                    MessageBox.Show("Добро пожаловать АДМИН =)");
+                    App.isAdmin = true;
+                }
+                else if (App.myDb.Student.Where(x => x.Reg_Number == Convert.ToInt32(LoginTb.Text)).FirstOrDefault() != null && PasswordPb.Password == "123")
+                {
+                    MessageBox.Show("Привет ученик. Вперёд к мечтам!");
+                    App.isAdmin = false;
+                }
+                else
+                {
+                    MessageBox.Show("Пожалуйста введите корректный лоигн и пароль (преподаватель/студент)");
+                }
             }
-            else
-            {
-                MessageBox.Show("Привет ученик. Вперёд к мечтам!");
-                App.isAdmin = false;
-            }
+            catch { }
 
             Navigation.NextPage(new PageComponent("Пустота", new EmptyPage()));
 
