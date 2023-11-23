@@ -108,7 +108,7 @@ namespace EducationAppHabLat.Pages
             if (CheckDeleted.IsChecked == false)
             {
                 App.selectExam = StudentGrade.SelectedItem as Exam;
-                Navigation.NextPage(new PageComponent("edit", new EditAdd_Pages.editGradePage()));
+                Navigation.NextPage(new PageComponent("edit", new editGradePage()));
             }
         }
     }

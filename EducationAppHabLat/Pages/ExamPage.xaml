@@ -35,10 +35,17 @@
                 <TextBlock Text="Search:              (по студенту)" TextWrapping="Wrap" FontFamily="Elephant" FontSize="15" Width="95" HorizontalAlignment="Left"></TextBlock>
                 <TextBox Width="230" x:Name="SearchTb" TextChanged="SearchTb_TextChanged"></TextBox>
             </StackPanel>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
+            <StackPanel VerticalAlignment="Center">
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD" x:Name="ExamAddBtn" Click="ExamAddBtn_Click"></Button>
+                <Button Content="DELETED" VerticalAlignment="Center" Width="100" Margin="30,0,0,0" x:Name="DeleteListExam" Click="DeleteListExam_Click"></Button>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label>Удаление</Label>
+                <CheckBox x:Name="CheckDeleted" VerticalAlignment="Center" HorizontalAlignment="Center"></CheckBox>
+            </StackPanel>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
-            <ListView x:Name="ExamList">
+            <ListView x:Name="ExamList" Height="450" SelectionChanged="ExamList_SelectionChanged" PreviewMouseDoubleClick="ExamList_PreviewMouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id_Exam}" Width="130"></GridViewColumn>

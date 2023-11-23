@@ -36,7 +36,7 @@
             <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" Margin="30,0,0,0" Content="ADD"></Button>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
-            <ListView x:Name="DiciplineList">
+            <ListView x:Name="DiciplineList" Height="450">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="№" DisplayMemberBinding="{Binding Code_Dicipline}" Width="130"></GridViewColumn>

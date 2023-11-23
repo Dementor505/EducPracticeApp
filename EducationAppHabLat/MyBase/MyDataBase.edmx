@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Practic321P_Lat_and_Hab4Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище DataBaseEndModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cathedra">
           <Key>
             <PropertyRef Name="Id_Cathedra" />
@@ -94,7 +94,7 @@
           <Key>
             <PropertyRef Name="Reg_Number" />
           </Key>
-          <Property Name="Reg_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reg_Number" Type="int" Nullable="false" />
           <Property Name="Id_Speciality" Type="int" Nullable="false" />
           <Property Name="FIO_Student" Type="nvarchar" MaxLength="100" />
           <Property Name="IsDeleted" Type="bit" />
@@ -253,7 +253,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище Practic321P_Lat_and_Hab4ModelContainer">
+        <EntityContainer Name="Хранилище DataBaseEndModelContainer">
           <EntitySet Name="Cathedra" EntityType="Self.Cathedra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Claim" EntityType="Self.Claim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Degree" EntityType="Self.Degree" Schema="dbo" store:Type="Tables" />
@@ -318,7 +318,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Practic321P_Lat_and_Hab4Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DataBaseEndModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Cathedra">
           <Key>
             <PropertyRef Name="Id_Cathedra" />
@@ -430,7 +430,7 @@
           <Key>
             <PropertyRef Name="Reg_Number" />
           </Key>
-          <Property Name="Reg_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reg_Number" Type="Int32" Nullable="false" />
           <Property Name="Id_Speciality" Type="Int32" Nullable="false" />
           <Property Name="FIO_Student" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Boolean" />
@@ -591,7 +591,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Practic321P_Lat_and_Hab4Entities5" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DataBaseEndEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cathedra" EntityType="Self.Cathedra" />
           <EntitySet Name="Claim" EntityType="Self.Claim" />
           <EntitySet Name="Degree" EntityType="Self.Degree" />
@@ -657,9 +657,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Practic321P_Lat_and_Hab4ModelContainer" CdmEntityContainer="Practic321P_Lat_and_Hab4Entities5">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DataBaseEndModelContainer" CdmEntityContainer="DataBaseEndEntities">
           <EntitySetMapping Name="Cathedra">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Cathedra">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Cathedra">
               <MappingFragment StoreEntitySet="Cathedra">
                 <ScalarProperty Name="Id_Cathedra" ColumnName="Id_Cathedra" />
                 <ScalarProperty Name="Shifr_Cathedra" ColumnName="Shifr_Cathedra" />
@@ -669,7 +669,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Claim">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Claim">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Claim">
               <MappingFragment StoreEntitySet="Claim">
                 <ScalarProperty Name="Id_Claim" ColumnName="Id_Claim" />
                 <ScalarProperty Name="Id_Speciality" ColumnName="Id_Speciality" />
@@ -678,7 +678,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Degree">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Degree">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Degree">
               <MappingFragment StoreEntitySet="Degree">
                 <ScalarProperty Name="Id_Degree" ColumnName="Id_Degree" />
                 <ScalarProperty Name="Name_Degree" ColumnName="Name_Degree" />
@@ -686,7 +686,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dicipline">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Dicipline">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Dicipline">
               <MappingFragment StoreEntitySet="Dicipline">
                 <ScalarProperty Name="Code_Dicipline" ColumnName="Code_Dicipline" />
                 <ScalarProperty Name="Space_Dicipline" ColumnName="Space_Dicipline" />
@@ -697,7 +697,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Employee">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="Tab_Number" ColumnName="Tab_Number" />
                 <ScalarProperty Name="Id_Cathedra" ColumnName="Id_Cathedra" />
@@ -711,7 +711,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Exam">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Exam">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Exam">
               <MappingFragment StoreEntitySet="Exam">
                 <ScalarProperty Name="Id_Exam" ColumnName="Id_Exam" />
                 <ScalarProperty Name="Date_Exam" ColumnName="Date_Exam" />
@@ -725,7 +725,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Faculty">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Faculty">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Faculty">
               <MappingFragment StoreEntitySet="Faculty">
                 <ScalarProperty Name="Id_Faculty" ColumnName="Id_Faculty" />
                 <ScalarProperty Name="Name_Faculty" ColumnName="Name_Faculty" />
@@ -734,7 +734,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Post">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Post">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Post">
               <MappingFragment StoreEntitySet="Post">
                 <ScalarProperty Name="Id_Post" ColumnName="Id_Post" />
                 <ScalarProperty Name="Name_Post" ColumnName="Name_Post" />
@@ -743,7 +743,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Speciality">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Speciality">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Speciality">
               <MappingFragment StoreEntitySet="Speciality">
                 <ScalarProperty Name="Id_Speciality" ColumnName="Id_Speciality" />
                 <ScalarProperty Name="Number_Speciality" ColumnName="Number_Speciality" />
@@ -753,7 +753,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Student">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.Student">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Student">
               <MappingFragment StoreEntitySet="Student">
                 <ScalarProperty Name="Reg_Number" ColumnName="Reg_Number" />
                 <ScalarProperty Name="Id_Speciality" ColumnName="Id_Speciality" />
@@ -763,7 +763,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Practic321P_Lat_and_Hab4Model.sysdiagrams">
+            <EntityTypeMapping TypeName="DataBaseEndModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />

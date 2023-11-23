@@ -13,10 +13,10 @@ namespace EducationAppHabLat.MyBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Practic321P_Lat_and_Hab4Entities5 : DbContext
+    public partial class DataBaseEndEntities : DbContext
     {
-        public Practic321P_Lat_and_Hab4Entities5()
-            : base("name=Practic321P_Lat_and_Hab4Entities5")
+        public DataBaseEndEntities()
+            : base("name=DataBaseEndEntities")
         {
         }
     

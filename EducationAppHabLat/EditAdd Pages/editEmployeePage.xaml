@@ -23,13 +23,13 @@
             <Label Content="Опыт в зав кафедре" HorizontalAlignment="Right"></Label>
         </StackPanel>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="tabNumber" BorderBrush="Black" BorderThickness="3" Width="100"></TextBox>
-            <TextBox x:Name="cathedra" BorderBrush="Black" BorderThickness="3"></TextBox>
-            <TextBox x:Name="employeeFio" BorderBrush="Black" BorderThickness="3"></TextBox>
-            <TextBox x:Name="post" BorderBrush="Black" BorderThickness="3"></TextBox>
-            <TextBox x:Name="money" BorderBrush="Black" BorderThickness="3"></TextBox>
-            <TextBox x:Name="mainPerson" BorderBrush="Black" BorderThickness="3"></TextBox>
-            <TextBox x:Name="expMainCathedra" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox Margin="0,0,0,0" x:Name="tabNumber" BorderBrush="Black" BorderThickness="3" Width="100"></TextBox>
+            <TextBox Margin="0,0,0,3" x:Name="cathedra" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox Margin="0,0,0,5" x:Name="employeeFio" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox Margin="0,0,0,10" x:Name="post" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox Margin="0,0,0,0" x:Name="money" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox Margin="0,0,0,0" x:Name="mainPerson" BorderBrush="Black" BorderThickness="3"></TextBox>
+            <TextBox Margin="0,0,0,0" x:Name="expMainCathedra" BorderBrush="Black" BorderThickness="3"></TextBox>
         </StackPanel>
         <Button x:Name="GradeSaveBtn" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="0,230,0,0" Width="100" Height="30" Content="Сохранить" Click="GradeSaveBtn_Click">
 

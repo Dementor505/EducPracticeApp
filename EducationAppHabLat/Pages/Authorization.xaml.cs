@@ -28,31 +28,23 @@ namespace EducationAppHabLat.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            var std = App.myDb.Student.Where(x => x.Reg_Number.ToString() == LoginTb.Text).FirstOrDefault();
+            if (std != null && PasswordPb.Password == "000")
             {
-                if (App.myDb.Employee.Where(x => x.Tab_Number == Convert.ToInt32(LoginTb.Text)).FirstOrDefault() != null && PasswordPb.Password == "000")
-                {
-                    MessageBox.Show("Добро пожаловать АДМИН =)");
-                    App.isAdmin = true;
-                }
-                else if (App.myDb.Student.Where(x => x.Reg_Number == Convert.ToInt32(LoginTb.Text)).FirstOrDefault() != null && PasswordPb.Password == "123")
-                {
-                    MessageBox.Show("Привет ученик. Вперёд к мечтам!");
-                    App.isAdmin = false;
-                }
-                else
-                {
-                    MessageBox.Show("Пожалуйста введите корректный лоигн и пароль (преподаватель/студент)");
-                }
+                App.isStudent = true;
+                Navigation.NextPage(new PageComponent("Студент", new EmptyPage()));
             }
-            catch { }
-
-            Navigation.NextPage(new PageComponent("Пустота", new EmptyPage()));
-
+            else if (LoginTb.Text == "Admin" && PasswordPb.Password == "111")
+            {
+                App.isAdmin = true;
+                Navigation.NextPage(new PageComponent("Админ", new EmptyPage()));
+            }
+            else
+            {
+                MessageBox.Show("Кто ты, воин ?");
+            }
             MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow.MenuVisible();
-
-
         }
     }
 }

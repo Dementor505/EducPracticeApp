@@ -1,4 +1,5 @@
-﻿using EducationAppHabLat.MyBase;
+﻿using EducationAppHabLat.EditAdd_Pages;
+using EducationAppHabLat.MyBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,6 +73,41 @@ namespace EducationAppHabLat.Pages
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void ExamAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Add", new editExamPage()));
+        }
+
+        private void ExamList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var exam = ExamList.SelectedItem as Exam;
+            if (CheckDeleted.IsChecked == true && exam != null)
+            {
+                foreach (var a in App.myDb.Exam)
+                {
+
+                    if ((a as Exam).Id_Exam == exam.Id_Exam)
+                        a.IsDeleted = Convert.ToBoolean(1);
+                }
+                App.myDb.SaveChanges();
+            }
+            ExamList.ItemsSource = App.myDb.Exam.ToList().Where(x => x.IsDeleted == false);
+        }
+
+        private void ExamList_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (CheckDeleted.IsChecked == false)
+            {
+                App.selectExamForExam = ExamList.SelectedItem as Exam;
+                Navigation.NextPage(new PageComponent("edit", new editExamPage()));
+            }
+        }
+
+        private void DeleteListExam_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeleteLists.DeleteExamPage());
         }
     }
 }

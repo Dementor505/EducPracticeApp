@@ -37,6 +37,11 @@ namespace EducationAppHabLat.EditAdd_Pages
                 post.Text = Convert.ToString(App.selectEmployee.Id_Post);
                 mainPerson.Text = Convert.ToString(App.selectEmployee.Shef);
             }
+            if (App.selectEmployee != null)
+            {
+                tabNumber.IsReadOnly = true;
+                tabNumber.Background = new SolidColorBrush(Colors.LightPink);
+            }
 
         }
 
@@ -44,7 +49,7 @@ namespace EducationAppHabLat.EditAdd_Pages
         {
             if (App.selectEmployee == null)
             {
-                if (tabNumber.Text == null || cathedra.Text == null || employeeFio == null || money.Text == null || expMainCathedra.Text == null || post.Text == null || mainPerson == null)
+                if (tabNumber.Text == "" || cathedra.Text == "" || employeeFio.Text == "" || money.Text == "" || expMainCathedra.Text == "" || post.Text == "" || mainPerson.Text == "")
                 { return; }
                 Employee employee = new Employee
                 {
@@ -57,7 +62,7 @@ namespace EducationAppHabLat.EditAdd_Pages
                     Shef = Convert.ToInt32(mainPerson.Text),
                     IsDeleted = false,
                 };
-                if (App.myDb.Employee.Where(x => x.Tab_Number == employee.Tab_Number).FirstOrDefault() == null)
+                if (App.myDb.Employee.Where(x => x.Tab_Number == employee.Tab_Number).FirstOrDefault() == null && App.myDb.Cathedra.Where(x => x.Id_Cathedra == employee.Id_Cathedra).FirstOrDefault() != null && App.myDb.Post.Where(x => x.Id_Post == employee.Id_Post).FirstOrDefault() != null)
                 {
                     App.myDb.Employee.Add(employee);
                     App.myDb.SaveChanges();
@@ -70,22 +75,25 @@ namespace EducationAppHabLat.EditAdd_Pages
             }
             else
             {
-                App.myDb.Employee.Remove(App.selectEmployee);
-                App.myDb.SaveChanges();
                 Employee secondEmployee = new Employee
                 {
                     Tab_Number = Convert.ToInt32(tabNumber.Text),
                     Id_Cathedra = Convert.ToInt32(cathedra.Text),
                     Surname = employeeFio.Text,
-                    Oklad = Convert.ToInt32(money.Text),
+                    Oklad = Convert.ToDecimal(money.Text),
                     Exp = Convert.ToInt32(expMainCathedra.Text),
                     Id_Post = Convert.ToInt32(post.Text),
                     Shef = Convert.ToInt32(mainPerson.Text),
                 };
-                App.myDb.Employee.Add(secondEmployee);
+                App.myDb.Employee.Remove(App.selectEmployee);
                 App.myDb.SaveChanges();
-                NavigationService.Navigate(new StudentPage());
-                App.selectEmployee = null;
+                if (App.myDb.Cathedra.Where(x => x.Id_Cathedra == secondEmployee.Id_Cathedra).FirstOrDefault() != null && App.myDb.Post.Where(x => x.Id_Post == secondEmployee.Id_Post).FirstOrDefault() != null)
+                {
+                    App.myDb.Employee.Add(secondEmployee);
+                    App.myDb.SaveChanges();
+                    NavigationService.Navigate(new EmployeePage());
+                    App.selectEmployee = null;
+                }
             }
         }
     }

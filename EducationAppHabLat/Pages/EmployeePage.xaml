@@ -43,7 +43,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1">
-            <ListView x:Name="EmployeeList" SelectionChanged="EmployeeList_SelectionChanged" PreviewMouseDoubleClick="EmployeeList_PreviewMouseDoubleClick">
+            <ListView x:Name="EmployeeList" Height="450" SelectionChanged="EmployeeList_SelectionChanged" PreviewMouseDoubleClick="EmployeeList_PreviewMouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Табельный номер" DisplayMemberBinding="{Binding Tab_Number}" Width="130"></GridViewColumn>

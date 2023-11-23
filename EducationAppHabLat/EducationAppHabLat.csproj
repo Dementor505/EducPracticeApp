@@ -70,6 +70,9 @@
     <Compile Include="DeleteLists\DeleteEmployee.xaml.cs">
       <DependentUpon>DeleteEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeleteLists\DeleteExamPage.xaml.cs">
+      <DependentUpon>DeleteExamPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteLists\DeleteGrade.xaml.cs">
       <DependentUpon>DeleteGrade.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,9 @@
     <Compile Include="EditAdd Pages\editEmployeePage.xaml.cs">
       <DependentUpon>editEmployeePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditAdd Pages\editExamPage.xaml.cs">
+      <DependentUpon>editExamPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditAdd Pages\editGradePage.xaml.cs">
       <DependentUpon>editGradePage.xaml</DependentUpon>
     </Compile>
@@ -86,6 +92,10 @@
       <DependentUpon>editStudentPage.xaml</DependentUpon>
     </Compile>
     <Page Include="DeleteLists\DeleteEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteLists\DeleteExamPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditAdd Pages\editEmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditAdd Pages\editExamPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

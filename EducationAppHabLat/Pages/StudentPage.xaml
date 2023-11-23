@@ -46,7 +46,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Background="#FFB3DAFF" Grid.Row="1" Margin="0,1,0,-1">
-            <ListView x:Name="StudentList" SelectionChanged="StudentList_SelectionChanged" PreviewMouseDoubleClick="StudentList_PreviewMouseDoubleClick">
+            <ListView x:Name="StudentList" Height="450" SelectionChanged="StudentList_SelectionChanged" PreviewMouseDoubleClick="StudentList_PreviewMouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Рег номер" DisplayMemberBinding="{Binding Reg_Number}" Width="130"></GridViewColumn>
