@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EducationAppHabLat.MyBase;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -46,6 +47,22 @@ namespace EducationAppHabLat.Pages
                 bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapimage.EndInit();
                 QrCode.Source = bitmapimage;
+            }
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(App.isStudent == true)
+            {
+                Navigation.NextPage(new PageComponent("empty", new EmptyPage()));
+            }
+            if(App.isAdmin == true)
+            {
+                Navigation.NextPage(new PageComponent("empty", new EmptyPage()));
+            }
+            if(App.isStudent == false && App.isAdmin == false)
+            {
+                Navigation.NextPage(new PageComponent("authorization", new Authorization()));
             }
         }
     }

@@ -12,9 +12,10 @@
         <StackPanel>
             <Image x:Name="QrCode" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,0" Width="300" Height="300"></Image>
             <Button x:Name="QrCodeBtn" Visibility="Hidden" Width="100" Height="30">ПОКАЗАТЬ</Button>
-            <Label HorizontalAlignment="center" FontSize="30" FontWeight="UltraBold" >Компания: ТопКомпани</Label>
-            <Label HorizontalAlignment="center" FontSize="30" FontWeight="UltraBold" >Тел: 8(888)-888-88-88</Label>
-            <Label HorizontalAlignment="center" FontSize="30" FontWeight="UltraBold" >Адрес: Казань</Label>
+            <Label HorizontalAlignment="center" FontSize="20" FontWeight="UltraBold" >Компания: ТопКомпани</Label>
+            <Label HorizontalAlignment="center" FontSize="20" FontWeight="UltraBold" >Тел: 8(888)-888-88-88</Label>
+            <Label HorizontalAlignment="center" FontSize="20" FontWeight="UltraBold" >Адрес: Казань</Label>
+            <Button x:Name="BackBtn" HorizontalAlignment="center" Width="100" Height="30" Click="BackBtn_Click">НАЗАД</Button>
         </StackPanel>
     </Grid>
 </Page>
