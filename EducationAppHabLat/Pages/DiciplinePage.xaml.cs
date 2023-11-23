@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EducationAppHabLat.EditAdd_Pages;
 using EducationAppHabLat.MyBase;
 
 namespace EducationAppHabLat.Pages
@@ -70,6 +71,41 @@ namespace EducationAppHabLat.Pages
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void DiciplineAddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Add", new editDiciplinePage()));
+        }
+
+        private void DeleteListDicipline_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeleteLists.DeleteDicipline());
+        }
+
+        private void DiciplineList_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (CheckDeleted.IsChecked == false)
+            {
+                App.selectDicipline = DiciplineList.SelectedItem as Dicipline;
+                Navigation.NextPage(new PageComponent("edit", new EditAdd_Pages.editDiciplinePage()));
+            }
+        }
+
+        private void DiciplineList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var dicipline = DiciplineList.SelectedItem as Dicipline;
+            if (CheckDeleted.IsChecked == true && dicipline != null)
+            {
+                foreach (var a in App.myDb.Dicipline)
+                {
+
+                    if ((a as Dicipline).Code_Dicipline == dicipline.Code_Dicipline)
+                        a.IsDeleted = Convert.ToBoolean(1);
+                }
+                App.myDb.SaveChanges();
+            }
+            DiciplineList.ItemsSource = App.myDb.Dicipline.ToList().Where(x => x.IsDeleted == false);
         }
     }
 }

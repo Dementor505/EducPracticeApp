@@ -30,8 +30,6 @@ namespace EducationAppHabLat.DeleteLists
 
         private void BackBtnEmployee_Click(object sender, RoutedEventArgs e)
         {
-
-
             NavigationService.Navigate(new EmployeePage());
         }
 

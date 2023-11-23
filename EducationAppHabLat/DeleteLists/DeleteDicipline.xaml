@@ -1,0 +1,27 @@
+﻿<Page x:Class="EducationAppHabLat.DeleteLists.DeleteDicipline"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationAppHabLat.DeleteLists"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DeleteDicipline">
+
+    <Grid>
+        <StackPanel>
+            <Button Width="100" Height="30" Content="BACK" x:Name="BackBtnDicipline" Click="BackBtnDicipline_Click"></Button>
+            <ListView x:Name="DiciplineList" PreviewMouseDoubleClick="DiciplineList_PreviewMouseDoubleClick">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="№" DisplayMemberBinding="{Binding Code_Dicipline}" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name_Dicipline}" x:Name="NameColumn" Width="130"></GridViewColumn>
+                        <GridViewColumn Header="Кафедра" DisplayMemberBinding="{Binding Cathedra.Name_Cathedra}" x:Name="CathedraColumn" Width="150"></GridViewColumn>
+                        <GridViewColumn Header="Объём" DisplayMemberBinding="{Binding Space_Dicipline}" x:Name="SpaceColumn" Width="70"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="3"></Border>
+        </StackPanel>
+    </Grid>
+</Page>

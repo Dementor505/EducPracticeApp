@@ -31,6 +31,7 @@ namespace EducationAppHabLat
         public static Exam selectExam;
         public static Employee selectEmployee;
         public static Exam selectExamForExam;
+        public static Dicipline selectDicipline;
 
         public static int studentLogin;
     }
