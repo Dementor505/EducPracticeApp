@@ -75,6 +75,10 @@ namespace EducationAppHabLat.EditAdd_Pages
             }
             else
             {
+                if(expMainCathedra.Text == null)
+                {
+                    expMainCathedra.Text = Convert.ToString(0);
+                }
                 Employee secondEmployee = new Employee
                 {
                     Tab_Number = Convert.ToInt32(tabNumber.Text),
@@ -85,6 +89,7 @@ namespace EducationAppHabLat.EditAdd_Pages
                     Id_Post = Convert.ToInt32(post.Text),
                     Shef = Convert.ToInt32(mainPerson.Text),
                 };
+              
                 App.myDb.Employee.Remove(App.selectEmployee);
                 App.myDb.SaveChanges();
                 if (App.myDb.Cathedra.Where(x => x.Id_Cathedra == secondEmployee.Id_Cathedra).FirstOrDefault() != null && App.myDb.Post.Where(x => x.Id_Post == secondEmployee.Id_Post).FirstOrDefault() != null)
