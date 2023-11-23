@@ -16,7 +16,7 @@ namespace EducationAppHabLat.MyBase
     {
         public int Id_Claim { get; set; }
         public int Id_Speciality { get; set; }
-        public int Id_Dicipline { get; set; }
+        public Nullable<int> Id_Dicipline { get; set; }
     
         public virtual Dicipline Dicipline { get; set; }
         public virtual Speciality Speciality { get; set; }

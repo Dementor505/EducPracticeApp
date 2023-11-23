@@ -17,8 +17,8 @@ namespace EducationAppHabLat.MyBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Dicipline()
         {
-            this.Claim = new HashSet<Claim>();
             this.Exam = new HashSet<Exam>();
+            this.Claim = new HashSet<Claim>();
         }
     
         public int Code_Dicipline { get; set; }
@@ -29,8 +29,8 @@ namespace EducationAppHabLat.MyBase
     
         public virtual Cathedra Cathedra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Claim> Claim { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam> Exam { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Claim> Claim { get; set; }
     }
 }

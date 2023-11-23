@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3df43254b50c4c1ea08810e7ad45bc99" Name="Diagram1">
         <EntityTypeShape EntityType="DataBaseEndModel.Cathedra" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataBaseEndModel.Claim" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseEndModel.Degree" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseEndModel.Dicipline" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DataBaseEndModel.Faculty" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
@@ -16,8 +15,6 @@
         <AssociationConnector Association="DataBaseEndModel.FK_Cathedra_Faculty" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseEndModel.FK_Dicipline_Cathedra" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseEndModel.FK_Speciality_Cathedra" ManuallyRouted="false" />
-        <AssociationConnector Association="DataBaseEndModel.FK_Claim_Dicipline" ManuallyRouted="false" />
-        <AssociationConnector Association="DataBaseEndModel.FK_Claim_Speciality" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseEndModel.FK_Post_Degree" ManuallyRouted="false" />
         <AssociationConnector Association="DataBaseEndModel.FK_Student_Speciality" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DataBaseEndModel.Exam" Width="1.5" PointX="10.875" PointY="7.875" />
@@ -28,6 +25,9 @@
         <AssociationConnector Association="DataBaseEndModel.FK_Employee_Cathedra" />
         <AssociationConnector Association="DataBaseEndModel.FK_Employee_Post" />
         <AssociationConnector Association="DataBaseEndModel.FK_Exam_Employee" />
+        <EntityTypeShape EntityType="DataBaseEndModel.Claim" Width="1.5" PointX="7.5" PointY="8.875" />
+        <AssociationConnector Association="DataBaseEndModel.FK_Claim_Dicipline" />
+        <AssociationConnector Association="DataBaseEndModel.FK_Claim_Speciality" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,7 +70,11 @@ namespace EducationAppHabLat.EditAdd_Pages
             }
             else
             {
-                try
+                if (App.selectDicipline.Code_Dicipline == Convert.ToInt32(code.Text) && App.selectDicipline.Name_Dicipline == nameDicipline.Text && App.selectDicipline.Space_Dicipline == Convert.ToInt32(space.Text) && App.myDb.Cathedra.Where(x => x.Id_Cathedra == App.selectDicipline.Id_Cathedra).FirstOrDefault() != null)
+                {
+                    Navigation.NextPage(new PageComponent("", new StudentPage()));
+                }
+                else
                 {
                     Dicipline secondDicipline = new Dicipline
                     {
@@ -78,19 +83,20 @@ namespace EducationAppHabLat.EditAdd_Pages
                         Space_Dicipline = Convert.ToInt32(space.Text),
                         Id_Cathedra = Convert.ToInt32(cathedra.Text),
                     };
-                    //App.myDb.Dicipline.Remove(App.selectDicipline);
-                    App.myDb.SaveChanges();
-                    if (App.myDb.Cathedra.Where(x => x.Id_Cathedra == secondDicipline.Id_Cathedra).FirstOrDefault() != null && App.myDb.Dicipline.Where(x => x.Name_Dicipline == secondDicipline.Name_Dicipline).FirstOrDefault() == null)
+                    if (App.myDb.Dicipline.Where(x => x.Code_Dicipline == secondDicipline.Code_Dicipline).FirstOrDefault() == null && App.myDb.Cathedra.Where(x => x.Id_Cathedra == secondDicipline.Id_Cathedra).FirstOrDefault() != null && App.myDb.Dicipline.Where(x => x.Name_Dicipline == secondDicipline.Name_Dicipline).FirstOrDefault() == null)
                     {
+                        App.myDb.Dicipline.Remove(App.selectDicipline);
+                        App.myDb.SaveChanges();
                         App.myDb.Dicipline.Add(secondDicipline);
                         App.myDb.SaveChanges();
                         NavigationService.Navigate(new DiciplinePage());
                         App.selectDicipline = null;
-
-                        App.myDb.Dicipline.AddOrUpdate();
+                    }
+                    else
+                    {
+                        return;
                     }
                 }
-                catch { }
             }
         }
     }

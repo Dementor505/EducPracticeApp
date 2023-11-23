@@ -26,7 +26,6 @@ namespace EducationAppHabLat.MyBase
         }
     
         public virtual DbSet<Cathedra> Cathedra { get; set; }
-        public virtual DbSet<Claim> Claim { get; set; }
         public virtual DbSet<Degree> Degree { get; set; }
         public virtual DbSet<Dicipline> Dicipline { get; set; }
         public virtual DbSet<Faculty> Faculty { get; set; }
@@ -36,5 +35,6 @@ namespace EducationAppHabLat.MyBase
         public virtual DbSet<Exam> Exam { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
+        public virtual DbSet<Claim> Claim { get; set; }
     }
 }

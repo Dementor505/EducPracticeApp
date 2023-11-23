@@ -20,7 +20,7 @@
           </Key>
           <Property Name="Id_Claim" Type="int" Nullable="false" />
           <Property Name="Id_Speciality" Type="int" Nullable="false" />
-          <Property Name="Id_Dicipline" Type="int" Nullable="false" />
+          <Property Name="Id_Dicipline" Type="int" />
         </EntityType>
         <EntityType Name="Degree">
           <Key>
@@ -122,7 +122,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Claim_Dicipline">
-          <End Role="Dicipline" Type="Self.Dicipline" Multiplicity="1" />
+          <End Role="Dicipline" Type="Self.Dicipline" Multiplicity="0..1" />
           <End Role="Claim" Type="Self.Claim" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dicipline">
@@ -331,16 +331,6 @@
           <NavigationProperty Name="Speciality" Relationship="Self.FK_Speciality_Cathedra" FromRole="Cathedra" ToRole="Speciality" />
           <NavigationProperty Name="Employee" Relationship="DataBaseEndModel.FK_Employee_Cathedra" FromRole="Cathedra" ToRole="Employee" />
         </EntityType>
-        <EntityType Name="Claim">
-          <Key>
-            <PropertyRef Name="Id_Claim" />
-          </Key>
-          <Property Name="Id_Claim" Type="Int32" Nullable="false" />
-          <Property Name="Id_Speciality" Type="Int32" Nullable="false" />
-          <Property Name="Id_Dicipline" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dicipline" Relationship="Self.FK_Claim_Dicipline" FromRole="Claim" ToRole="Dicipline" />
-          <NavigationProperty Name="Speciality" Relationship="Self.FK_Claim_Speciality" FromRole="Claim" ToRole="Speciality" />
-        </EntityType>
         <EntityType Name="Degree">
           <Key>
             <PropertyRef Name="Id_Degree" />
@@ -359,8 +349,8 @@
           <Property Name="Id_Cathedra" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Cathedra" Relationship="Self.FK_Dicipline_Cathedra" FromRole="Dicipline" ToRole="Cathedra" />
-          <NavigationProperty Name="Claim" Relationship="Self.FK_Claim_Dicipline" FromRole="Dicipline" ToRole="Claim" />
           <NavigationProperty Name="Exam" Relationship="DataBaseEndModel.FK_Exam_Dicipline" FromRole="Dicipline" ToRole="Exam" />
+          <NavigationProperty Name="Claim" Relationship="DataBaseEndModel.FK_Claim_Dicipline" FromRole="Dicipline" ToRole="Claim" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -390,8 +380,8 @@
           <Property Name="Direction_Speciality" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
           <Property Name="Id_Cathedra" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cathedra" Relationship="Self.FK_Speciality_Cathedra" FromRole="Speciality" ToRole="Cathedra" />
-          <NavigationProperty Name="Claim" Relationship="Self.FK_Claim_Speciality" FromRole="Speciality" ToRole="Claim" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_Speciality" FromRole="Speciality" ToRole="Student" />
+          <NavigationProperty Name="Claim" Relationship="DataBaseEndModel.FK_Claim_Speciality" FromRole="Speciality" ToRole="Claim" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -440,30 +430,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Claim_Dicipline">
-          <End Role="Dicipline" Type="Self.Dicipline" Multiplicity="1" />
-          <End Role="Claim" Type="Self.Claim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dicipline">
-              <PropertyRef Name="Code_Dicipline" />
-            </Principal>
-            <Dependent Role="Claim">
-              <PropertyRef Name="Id_Dicipline" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Claim_Speciality">
-          <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
-          <End Role="Claim" Type="Self.Claim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Speciality">
-              <PropertyRef Name="Id_Speciality" />
-            </Principal>
-            <Dependent Role="Claim">
-              <PropertyRef Name="Id_Speciality" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Post_Degree">
           <End Role="Degree" Type="Self.Degree" Multiplicity="0..1" />
           <End Role="Post" Type="Self.Post" Multiplicity="*" />
@@ -490,7 +456,6 @@
         </Association>
         <EntityContainer Name="DataBaseEndEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cathedra" EntityType="Self.Cathedra" />
-          <EntitySet Name="Claim" EntityType="Self.Claim" />
           <EntitySet Name="Degree" EntityType="Self.Degree" />
           <EntitySet Name="Dicipline" EntityType="Self.Dicipline" />
           <EntitySet Name="Faculty" EntityType="Self.Faculty" />
@@ -508,14 +473,6 @@
           <AssociationSet Name="FK_Speciality_Cathedra" Association="Self.FK_Speciality_Cathedra">
             <End Role="Cathedra" EntitySet="Cathedra" />
             <End Role="Speciality" EntitySet="Speciality" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Claim_Dicipline" Association="Self.FK_Claim_Dicipline">
-            <End Role="Dicipline" EntitySet="Dicipline" />
-            <End Role="Claim" EntitySet="Claim" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Claim_Speciality" Association="Self.FK_Claim_Speciality">
-            <End Role="Speciality" EntitySet="Speciality" />
-            <End Role="Claim" EntitySet="Claim" />
           </AssociationSet>
           <AssociationSet Name="FK_Post_Degree" Association="Self.FK_Post_Degree">
             <End Role="Degree" EntitySet="Degree" />
@@ -547,6 +504,15 @@
           <AssociationSet Name="FK_Exam_Employee" Association="DataBaseEndModel.FK_Exam_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <EntitySet Name="Claim" EntityType="DataBaseEndModel.Claim" />
+          <AssociationSet Name="FK_Claim_Dicipline" Association="DataBaseEndModel.FK_Claim_Dicipline">
+            <End Role="Dicipline" EntitySet="Dicipline" />
+            <End Role="Claim" EntitySet="Claim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Claim_Speciality" Association="DataBaseEndModel.FK_Claim_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Claim" EntitySet="Claim" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Exam">
@@ -651,6 +617,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Claim">
+          <Key>
+            <PropertyRef Name="Id_Claim" />
+          </Key>
+          <Property Name="Id_Claim" Type="Int32" Nullable="false" />
+          <Property Name="Id_Speciality" Type="Int32" Nullable="false" />
+          <Property Name="Id_Dicipline" Type="Int32" />
+          <NavigationProperty Name="Dicipline" Relationship="DataBaseEndModel.FK_Claim_Dicipline" FromRole="Claim" ToRole="Dicipline" />
+          <NavigationProperty Name="Speciality" Relationship="DataBaseEndModel.FK_Claim_Speciality" FromRole="Claim" ToRole="Speciality" />
+        </EntityType>
+        <Association Name="FK_Claim_Dicipline">
+          <End Type="DataBaseEndModel.Dicipline" Role="Dicipline" Multiplicity="0..1" />
+          <End Type="DataBaseEndModel.Claim" Role="Claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dicipline">
+              <PropertyRef Name="Code_Dicipline" />
+            </Principal>
+            <Dependent Role="Claim">
+              <PropertyRef Name="Id_Dicipline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Claim_Speciality">
+          <End Type="DataBaseEndModel.Speciality" Role="Speciality" Multiplicity="1" />
+          <End Type="DataBaseEndModel.Claim" Role="Claim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Id_Speciality" />
+            </Principal>
+            <Dependent Role="Claim">
+              <PropertyRef Name="Id_Speciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -664,15 +664,6 @@
                 <ScalarProperty Name="Shifr_Cathedra" ColumnName="Shifr_Cathedra" />
                 <ScalarProperty Name="Name_Cathedra" ColumnName="Name_Cathedra" />
                 <ScalarProperty Name="Id_Faculty" ColumnName="Id_Faculty" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Claim">
-            <EntityTypeMapping TypeName="DataBaseEndModel.Claim">
-              <MappingFragment StoreEntitySet="Claim">
-                <ScalarProperty Name="Id_Claim" ColumnName="Id_Claim" />
-                <ScalarProperty Name="Id_Speciality" ColumnName="Id_Speciality" />
-                <ScalarProperty Name="Id_Dicipline" ColumnName="Id_Dicipline" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -769,6 +760,15 @@
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Id_Cathedra" ColumnName="Id_Cathedra" />
                 <ScalarProperty Name="Tab_Number" ColumnName="Tab_Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Claim">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Claim">
+              <MappingFragment StoreEntitySet="Claim">
+                <ScalarProperty Name="Id_Dicipline" ColumnName="Id_Dicipline" />
+                <ScalarProperty Name="Id_Speciality" ColumnName="Id_Speciality" />
+                <ScalarProperty Name="Id_Claim" ColumnName="Id_Claim" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
