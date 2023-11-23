@@ -75,7 +75,7 @@ namespace EducationAppHabLat.EditAdd_Pages
             }
             else
             {
-                if(expMainCathedra.Text == null)
+                if(expMainCathedra.Text == "")
                 {
                     expMainCathedra.Text = Convert.ToString(0);
                 }
