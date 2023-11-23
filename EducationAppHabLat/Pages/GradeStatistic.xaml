@@ -40,7 +40,7 @@
                 <Button Content="DELETED" VerticalAlignment="Center" Width="100" Margin="30,0,0,0" x:Name="DeleteListGrade" Click="DeleteListGrade_Click"></Button>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label>Удаление</Label>
+                <Label x:Name="textDelete">Удаление</Label>
                 <CheckBox x:Name="CheckDeleted" VerticalAlignment="Center" HorizontalAlignment="Center"></CheckBox>
             </StackPanel>
         </StackPanel>

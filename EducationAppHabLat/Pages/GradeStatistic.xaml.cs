@@ -28,8 +28,23 @@ namespace EducationAppHabLat.Pages
         {
             InitializeComponent();
 
-            StudentGrade.ItemsSource = App.myDb.Exam.ToList().Where(x => x.IsDeleted == false);
+            if (App.isStudent == true)
+            {
+                StudentGrade.ItemsSource = App.myDb.Exam.ToList().Where(x => x.IsDeleted == false && x.Reg_Number == App.studentLogin);
+            }
+            else
+            {
+                StudentGrade.ItemsSource = App.myDb.Exam.ToList().Where(x => x.IsDeleted == false);
+            }
             Refresh();
+
+            if(App.isStudent == true)
+            {
+                GradeAddBtn.Visibility = Visibility.Hidden;
+                CheckDeleted.Visibility = Visibility.Hidden;
+                textDelete.Visibility = Visibility.Hidden;
+                DeleteListGrade.Visibility = Visibility.Hidden;
+            }
         }
 
         public void Refresh()
@@ -58,8 +73,15 @@ namespace EducationAppHabLat.Pages
             {
                 SortedDicipline = SortedDicipline.Where(x => x.Dicipline.Name_Dicipline.ToLower().Contains(SearchTb.Text.ToLower()));
             }
-
-            StudentGrade.ItemsSource = SortedDicipline.ToList().Where(x => x.IsDeleted == false);
+           
+            if (App.isStudent == true)
+            {
+                StudentGrade.ItemsSource = App.myDb.Exam.ToList().Where(x => x.IsDeleted == false && x.Reg_Number == App.studentLogin);
+            }
+            else
+            {
+                StudentGrade.ItemsSource = App.myDb.Exam.ToList().Where(x => x.IsDeleted == false);
+            }
         }
 
         private void FiltrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -105,7 +127,7 @@ namespace EducationAppHabLat.Pages
 
         private void StudentGrade_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (CheckDeleted.IsChecked == false)
+            if (CheckDeleted.IsChecked == false && App.isStudent == false)
             {
                 App.selectExam = StudentGrade.SelectedItem as Exam;
                 Navigation.NextPage(new PageComponent("edit", new editGradePage()));

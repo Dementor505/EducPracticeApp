@@ -32,6 +32,8 @@ namespace EducationAppHabLat.Pages
             if (std != null && PasswordPb.Password == "000")
             {
                 App.isStudent = true;
+                App.studentLogin = Convert.ToInt32(LoginTb.Text);
+                //MessageBox.Show(Convert.ToString(App.studentLogin));
                 Navigation.NextPage(new PageComponent("Студент", new EmptyPage()));
             }
             else if (LoginTb.Text == "Admin" && PasswordPb.Password == "111")

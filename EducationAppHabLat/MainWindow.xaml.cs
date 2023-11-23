@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EducationAppHabLat.Pages;
 using EducationAppHabLat.MyBase;
+using static System.Net.Mime.MediaTypeNames;
+using System.IO;
 
 namespace EducationAppHabLat
 {
@@ -53,7 +55,7 @@ namespace EducationAppHabLat
                 DiciplineBtn.Visibility = Visibility.Visible;
                 StudentBtn.Visibility = Visibility.Visible;
             }
-            else
+            else if (App.isStudent == true)
             {
                 GradeBtn.Visibility = Visibility.Visible;
                 EmployeeBtn.Visibility = Visibility.Hidden;
@@ -86,6 +88,11 @@ namespace EducationAppHabLat
         private void ExamsBtn_Click(object sender, RoutedEventArgs e)
         {
             Navigation.NextPage(new PageComponent("Экзамены", new ExamPage()));
+        }
+
+        private void AboutUs_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Это всё", new AboutUs()));
         }
     }
 }
