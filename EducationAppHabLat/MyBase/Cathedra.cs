@@ -18,8 +18,8 @@ namespace EducationAppHabLat.MyBase
         public Cathedra()
         {
             this.Dicipline = new HashSet<Dicipline>();
-            this.Employee = new HashSet<Employee>();
             this.Speciality = new HashSet<Speciality>();
+            this.Employee = new HashSet<Employee>();
         }
     
         public int Id_Cathedra { get; set; }
@@ -31,8 +31,8 @@ namespace EducationAppHabLat.MyBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dicipline> Dicipline { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employee { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Speciality> Speciality { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee> Employee { get; set; }
     }
 }

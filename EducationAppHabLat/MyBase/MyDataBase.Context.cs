@@ -13,10 +13,10 @@ namespace EducationAppHabLat.MyBase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DataBaseEndEntities : DbContext
+    public partial class DataBaseEndEntities1 : DbContext
     {
-        public DataBaseEndEntities()
-            : base("name=DataBaseEndEntities")
+        public DataBaseEndEntities1()
+            : base("name=DataBaseEndEntities1")
         {
         }
     
@@ -29,12 +29,12 @@ namespace EducationAppHabLat.MyBase
         public virtual DbSet<Claim> Claim { get; set; }
         public virtual DbSet<Degree> Degree { get; set; }
         public virtual DbSet<Dicipline> Dicipline { get; set; }
-        public virtual DbSet<Employee> Employee { get; set; }
-        public virtual DbSet<Exam> Exam { get; set; }
         public virtual DbSet<Faculty> Faculty { get; set; }
         public virtual DbSet<Post> Post { get; set; }
         public virtual DbSet<Speciality> Speciality { get; set; }
         public virtual DbSet<Student> Student { get; set; }
+        public virtual DbSet<Exam> Exam { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
     }
 }

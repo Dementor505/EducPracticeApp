@@ -65,26 +65,32 @@ namespace EducationAppHabLat.Windows
             }
             else
             {
-
-                Student secondStudent = new Student
+                if (App.selectStudent.Reg_Number == Convert.ToInt32(regNumber.Text) && App.selectStudent.FIO_Student == fioStudent.Text && App.selectStudent.Id_Speciality == Convert.ToInt32(idSpeciality.Text))
                 {
-                    FIO_Student = fioStudent.Text,
-                    Id_Speciality = Convert.ToInt32(idSpeciality.Text),
-                    Reg_Number = Convert.ToInt32(regNumber.Text),
-                    IsDeleted = false,
-                };
-                App.myDb.Student.Remove(App.selectStudent);
-                App.myDb.SaveChanges();
-                if (App.myDb.Student.Where(x => x.FIO_Student == secondStudent.FIO_Student).FirstOrDefault() == null && App.myDb.Speciality.Where(x => x.Id_Speciality == secondStudent.Id_Speciality).FirstOrDefault() != null)
-                {
-                    App.myDb.Student.Add(secondStudent);
-                    App.myDb.SaveChanges();
-                    NavigationService.Navigate(new StudentPage());
-                    App.selectStudent = null;
+                    Navigation.NextPage(new PageComponent("", new StudentPage()));
                 }
                 else
                 {
-                    return;
+                    Student secondStudent = new Student
+                    {
+                        FIO_Student = fioStudent.Text,
+                        Id_Speciality = Convert.ToInt32(idSpeciality.Text),
+                        Reg_Number = Convert.ToInt32(App.selectStudent.Reg_Number),
+                        IsDeleted = false,
+                    };
+                    if (App.myDb.Student.Where(x => x.FIO_Student == secondStudent.FIO_Student).FirstOrDefault() == null || App.myDb.Speciality.Where(x => x.Id_Speciality == secondStudent.Id_Speciality).FirstOrDefault() != null)
+                    {
+                        App.myDb.Student.Remove(App.selectStudent);
+                        App.myDb.SaveChanges();
+                        App.myDb.Student.Add(secondStudent);
+                        App.myDb.SaveChanges();
+                        NavigationService.Navigate(new StudentPage());
+                        App.selectStudent = null;
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
 

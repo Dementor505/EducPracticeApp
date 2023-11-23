@@ -31,7 +31,7 @@ namespace EducationAppHabLat.Pages
                 if (a.Exp == null) a.Exp = 0;
             }
 
-            EmployeeList.ItemsSource = App.myDb.Employee.ToList();
+            EmployeeList.ItemsSource = App.myDb.Employee.ToList().Where(x => x.IsDeleted == false);
             Refresh();
         }
 
@@ -59,7 +59,7 @@ namespace EducationAppHabLat.Pages
                 SortedDicipline = SortedDicipline.Where(x => x.Post.Name_Post.ToLower().Contains(SearchTb.Text.ToLower()));
             }
 
-            EmployeeList.ItemsSource = SortedDicipline.ToList();
+            EmployeeList.ItemsSource = SortedDicipline.ToList().Where(x => x.IsDeleted == false);
         }
 
         private void FiltrList_SelectionChanged(object sender, SelectionChangedEventArgs e)

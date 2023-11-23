@@ -18,7 +18,7 @@ namespace EducationAppHabLat
         public static bool isAdmin = false;
         public static bool isStudent = false;
 
-        public static  DataBaseEndEntities myDb = new DataBaseEndEntities();
+        public static  DataBaseEndEntities1 myDb = new DataBaseEndEntities1();
 
         public static StudentPage sp = new StudentPage();
 

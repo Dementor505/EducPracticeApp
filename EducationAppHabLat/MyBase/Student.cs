@@ -25,8 +25,8 @@ namespace EducationAppHabLat.MyBase
         public string FIO_Student { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     
+        public virtual Speciality Speciality { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam> Exam { get; set; }
-        public virtual Speciality Speciality { get; set; }
     }
 }

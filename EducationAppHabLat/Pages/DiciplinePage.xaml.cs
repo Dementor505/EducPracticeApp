@@ -26,7 +26,7 @@ namespace EducationAppHabLat.Pages
         {
             InitializeComponent();
 
-            DiciplineList.ItemsSource = App.myDb.Dicipline.ToList();
+            DiciplineList.ItemsSource = App.myDb.Dicipline.ToList().Where(x => x.IsDeleted == false);
 
             Refresh();
         }
@@ -55,7 +55,7 @@ namespace EducationAppHabLat.Pages
                 SortedDicipline = SortedDicipline.Where(x => x.Name_Dicipline.ToLower().Contains(SearchTb.Text.ToLower()));
             }
 
-            DiciplineList.ItemsSource = SortedDicipline.ToList();
+            DiciplineList.ItemsSource = SortedDicipline.ToList().Where(x => x.IsDeleted == false);
         }
 
         private void SortList_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище DataBaseEndModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище DataBaseEndModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cathedra">
           <Key>
             <PropertyRef Name="Id_Cathedra" />
@@ -59,8 +59,8 @@
           <Property Name="Id_Exam" Type="int" Nullable="false" />
           <Property Name="Date_Exam" Type="date" />
           <Property Name="Code_Discipline" Type="int" Nullable="false" />
-          <Property Name="Reg_Number" Type="int" Nullable="false" />
-          <Property Name="Tab_Number" Type="int" Nullable="false" />
+          <Property Name="Reg_Number" Type="int" />
+          <Property Name="Tab_Number" Type="int" />
           <Property Name="Auditory" Type="nvarchar" MaxLength="50" />
           <Property Name="Grade" Type="int" />
           <Property Name="IsDeleted" Type="bit" />
@@ -194,7 +194,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Exam_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -206,7 +206,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Exam_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -314,8 +314,7 @@
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DataBaseEndModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -329,8 +328,8 @@
           <Property Name="Id_Faculty" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Faculty" Relationship="Self.FK_Cathedra_Faculty" FromRole="Cathedra" ToRole="Faculty" />
           <NavigationProperty Name="Dicipline" Relationship="Self.FK_Dicipline_Cathedra" FromRole="Cathedra" ToRole="Dicipline" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Cathedra" FromRole="Cathedra" ToRole="Employee" />
           <NavigationProperty Name="Speciality" Relationship="Self.FK_Speciality_Cathedra" FromRole="Cathedra" ToRole="Speciality" />
+          <NavigationProperty Name="Employee" Relationship="DataBaseEndModel.FK_Employee_Cathedra" FromRole="Cathedra" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Claim">
           <Key>
@@ -361,39 +360,7 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Cathedra" Relationship="Self.FK_Dicipline_Cathedra" FromRole="Dicipline" ToRole="Cathedra" />
           <NavigationProperty Name="Claim" Relationship="Self.FK_Claim_Dicipline" FromRole="Dicipline" ToRole="Claim" />
-          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Dicipline" FromRole="Dicipline" ToRole="Exam" />
-        </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="Tab_Number" />
-          </Key>
-          <Property Name="Tab_Number" Type="Int32" Nullable="false" />
-          <Property Name="Id_Cathedra" Type="Int32" Nullable="false" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Id_Post" Type="Int32" Nullable="false" />
-          <Property Name="Oklad" Type="Decimal" Precision="7" Scale="2" />
-          <Property Name="Shef" Type="Int32" />
-          <Property Name="Exp" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Cathedra" Relationship="Self.FK_Employee_Cathedra" FromRole="Employee" ToRole="Cathedra" />
-          <NavigationProperty Name="Post" Relationship="Self.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
-          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Employee" FromRole="Employee" ToRole="Exam" />
-        </EntityType>
-        <EntityType Name="Exam">
-          <Key>
-            <PropertyRef Name="Id_Exam" />
-          </Key>
-          <Property Name="Id_Exam" Type="Int32" Nullable="false" />
-          <Property Name="Date_Exam" Type="DateTime" Precision="0" />
-          <Property Name="Code_Discipline" Type="Int32" Nullable="false" />
-          <Property Name="Reg_Number" Type="Int32" Nullable="false" />
-          <Property Name="Tab_Number" Type="Int32" Nullable="false" />
-          <Property Name="Auditory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Grade" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Dicipline" Relationship="Self.FK_Exam_Dicipline" FromRole="Exam" ToRole="Dicipline" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Exam_Employee" FromRole="Exam" ToRole="Employee" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Exam_Student" FromRole="Exam" ToRole="Student" />
+          <NavigationProperty Name="Exam" Relationship="DataBaseEndModel.FK_Exam_Dicipline" FromRole="Dicipline" ToRole="Exam" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -412,7 +379,7 @@
           <Property Name="Name_Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_Degree" Type="Int32" />
           <NavigationProperty Name="Degree" Relationship="Self.FK_Post_Degree" FromRole="Post" ToRole="Degree" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Post" FromRole="Post" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="DataBaseEndModel.FK_Employee_Post" FromRole="Post" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Speciality">
           <Key>
@@ -434,18 +401,8 @@
           <Property Name="Id_Speciality" Type="Int32" Nullable="false" />
           <Property Name="FIO_Student" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Student" FromRole="Student" ToRole="Exam" />
           <NavigationProperty Name="Speciality" Relationship="Self.FK_Student_Speciality" FromRole="Student" ToRole="Speciality" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Exam" Relationship="DataBaseEndModel.FK_Exam_Student" FromRole="Student" ToRole="Exam" />
         </EntityType>
         <Association Name="FK_Cathedra_Faculty">
           <End Role="Faculty" Type="Self.Faculty" Multiplicity="1" />
@@ -467,18 +424,6 @@
               <PropertyRef Name="Id_Cathedra" />
             </Principal>
             <Dependent Role="Dicipline">
-              <PropertyRef Name="Id_Cathedra" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Cathedra">
-          <End Role="Cathedra" Type="Self.Cathedra" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cathedra">
-              <PropertyRef Name="Id_Cathedra" />
-            </Principal>
-            <Dependent Role="Employee">
               <PropertyRef Name="Id_Cathedra" />
             </Dependent>
           </ReferentialConstraint>
@@ -531,54 +476,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Exam_Dicipline">
-          <End Role="Dicipline" Type="Self.Dicipline" Multiplicity="1" />
-          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dicipline">
-              <PropertyRef Name="Code_Dicipline" />
-            </Principal>
-            <Dependent Role="Exam">
-              <PropertyRef Name="Code_Discipline" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Post">
-              <PropertyRef Name="Id_Post" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="Id_Post" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Exam_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Tab_Number" />
-            </Principal>
-            <Dependent Role="Exam">
-              <PropertyRef Name="Tab_Number" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Exam_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
-          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="Reg_Number" />
-            </Principal>
-            <Dependent Role="Exam">
-              <PropertyRef Name="Reg_Number" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Student_Speciality">
           <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
@@ -591,18 +488,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DataBaseEndEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DataBaseEndEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cathedra" EntityType="Self.Cathedra" />
           <EntitySet Name="Claim" EntityType="Self.Claim" />
           <EntitySet Name="Degree" EntityType="Self.Degree" />
           <EntitySet Name="Dicipline" EntityType="Self.Dicipline" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" />
-          <EntitySet Name="Exam" EntityType="Self.Exam" />
           <EntitySet Name="Faculty" EntityType="Self.Faculty" />
           <EntitySet Name="Post" EntityType="Self.Post" />
           <EntitySet Name="Speciality" EntityType="Self.Speciality" />
           <EntitySet Name="Student" EntityType="Self.Student" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_Cathedra_Faculty" Association="Self.FK_Cathedra_Faculty">
             <End Role="Faculty" EntitySet="Faculty" />
             <End Role="Cathedra" EntitySet="Cathedra" />
@@ -610,10 +504,6 @@
           <AssociationSet Name="FK_Dicipline_Cathedra" Association="Self.FK_Dicipline_Cathedra">
             <End Role="Cathedra" EntitySet="Cathedra" />
             <End Role="Dicipline" EntitySet="Dicipline" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Cathedra" Association="Self.FK_Employee_Cathedra">
-            <End Role="Cathedra" EntitySet="Cathedra" />
-            <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_Speciality_Cathedra" Association="Self.FK_Speciality_Cathedra">
             <End Role="Cathedra" EntitySet="Cathedra" />
@@ -631,33 +521,142 @@
             <End Role="Degree" EntitySet="Degree" />
             <End Role="Post" EntitySet="Post" />
           </AssociationSet>
-          <AssociationSet Name="FK_Exam_Dicipline" Association="Self.FK_Exam_Dicipline">
-            <End Role="Dicipline" EntitySet="Dicipline" />
-            <End Role="Exam" EntitySet="Exam" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Post" Association="Self.FK_Employee_Post">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Exam_Employee" Association="Self.FK_Exam_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Exam" EntitySet="Exam" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Exam_Student" Association="Self.FK_Exam_Student">
-            <End Role="Student" EntitySet="Student" />
-            <End Role="Exam" EntitySet="Exam" />
-          </AssociationSet>
           <AssociationSet Name="FK_Student_Speciality" Association="Self.FK_Student_Speciality">
             <End Role="Speciality" EntitySet="Speciality" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <EntitySet Name="Exam" EntityType="DataBaseEndModel.Exam" />
+          <EntitySet Name="sysdiagrams" EntityType="DataBaseEndModel.sysdiagrams" />
+          <AssociationSet Name="FK_Exam_Dicipline" Association="DataBaseEndModel.FK_Exam_Dicipline">
+            <End Role="Dicipline" EntitySet="Dicipline" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Student" Association="DataBaseEndModel.FK_Exam_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <EntitySet Name="Employee" EntityType="DataBaseEndModel.Employee" />
+          <AssociationSet Name="FK_Employee_Cathedra" Association="DataBaseEndModel.FK_Employee_Cathedra">
+            <End Role="Cathedra" EntitySet="Cathedra" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Post" Association="DataBaseEndModel.FK_Employee_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Employee" Association="DataBaseEndModel.FK_Exam_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="Id_Exam" />
+          </Key>
+          <Property Name="Id_Exam" Type="Int32" Nullable="false" />
+          <Property Name="Date_Exam" Type="DateTime" Precision="0" />
+          <Property Name="Code_Discipline" Type="Int32" Nullable="false" />
+          <Property Name="Reg_Number" Type="Int32" />
+          <Property Name="Tab_Number" Type="Int32" />
+          <Property Name="Auditory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Dicipline" Relationship="DataBaseEndModel.FK_Exam_Dicipline" FromRole="Exam" ToRole="Dicipline" />
+          <NavigationProperty Name="Student" Relationship="DataBaseEndModel.FK_Exam_Student" FromRole="Exam" ToRole="Student" />
+          <NavigationProperty Name="Employee" Relationship="DataBaseEndModel.FK_Exam_Employee" FromRole="Exam" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Exam_Dicipline">
+          <End Type="DataBaseEndModel.Dicipline" Role="Dicipline" Multiplicity="1" />
+          <End Type="DataBaseEndModel.Exam" Role="Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dicipline">
+              <PropertyRef Name="Code_Dicipline" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Code_Discipline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Student">
+          <End Type="DataBaseEndModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="DataBaseEndModel.Exam" Role="Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Reg_Number" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Reg_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Tab_Number" />
+          </Key>
+          <Property Name="Tab_Number" Type="Int32" Nullable="false" />
+          <Property Name="Id_Cathedra" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Post" Type="Int32" Nullable="false" />
+          <Property Name="Oklad" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="Shef" Type="Int32" />
+          <Property Name="Exp" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cathedra" Relationship="DataBaseEndModel.FK_Employee_Cathedra" FromRole="Employee" ToRole="Cathedra" />
+          <NavigationProperty Name="Post" Relationship="DataBaseEndModel.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
+          <NavigationProperty Name="Exam" Relationship="DataBaseEndModel.FK_Exam_Employee" FromRole="Employee" ToRole="Exam" />
+        </EntityType>
+        <Association Name="FK_Employee_Cathedra">
+          <End Type="DataBaseEndModel.Cathedra" Role="Cathedra" Multiplicity="1" />
+          <End Type="DataBaseEndModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cathedra">
+              <PropertyRef Name="Id_Cathedra" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Id_Cathedra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Post">
+          <End Type="DataBaseEndModel.Post" Role="Post" Multiplicity="1" />
+          <End Type="DataBaseEndModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="Id_Post" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Id_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Employee">
+          <End Type="DataBaseEndModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="DataBaseEndModel.Exam" Role="Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Tab_Number" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Tab_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище DataBaseEndModelContainer" CdmEntityContainer="DataBaseEndEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DataBaseEndModelContainer" CdmEntityContainer="DataBaseEndEntities1">
           <EntitySetMapping Name="Cathedra">
             <EntityTypeMapping TypeName="DataBaseEndModel.Cathedra">
               <MappingFragment StoreEntitySet="Cathedra">
@@ -692,34 +691,6 @@
                 <ScalarProperty Name="Space_Dicipline" ColumnName="Space_Dicipline" />
                 <ScalarProperty Name="Name_Dicipline" ColumnName="Name_Dicipline" />
                 <ScalarProperty Name="Id_Cathedra" ColumnName="Id_Cathedra" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="DataBaseEndModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="Tab_Number" ColumnName="Tab_Number" />
-                <ScalarProperty Name="Id_Cathedra" ColumnName="Id_Cathedra" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Id_Post" ColumnName="Id_Post" />
-                <ScalarProperty Name="Oklad" ColumnName="Oklad" />
-                <ScalarProperty Name="Shef" ColumnName="Shef" />
-                <ScalarProperty Name="Exp" ColumnName="Exp" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Exam">
-            <EntityTypeMapping TypeName="DataBaseEndModel.Exam">
-              <MappingFragment StoreEntitySet="Exam">
-                <ScalarProperty Name="Id_Exam" ColumnName="Id_Exam" />
-                <ScalarProperty Name="Date_Exam" ColumnName="Date_Exam" />
-                <ScalarProperty Name="Code_Discipline" ColumnName="Code_Discipline" />
-                <ScalarProperty Name="Reg_Number" ColumnName="Reg_Number" />
-                <ScalarProperty Name="Tab_Number" ColumnName="Tab_Number" />
-                <ScalarProperty Name="Auditory" ColumnName="Auditory" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -762,14 +733,42 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Exam">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Auditory" ColumnName="Auditory" />
+                <ScalarProperty Name="Tab_Number" ColumnName="Tab_Number" />
+                <ScalarProperty Name="Reg_Number" ColumnName="Reg_Number" />
+                <ScalarProperty Name="Code_Discipline" ColumnName="Code_Discipline" />
+                <ScalarProperty Name="Date_Exam" ColumnName="Date_Exam" />
+                <ScalarProperty Name="Id_Exam" ColumnName="Id_Exam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="DataBaseEndModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="DataBaseEndModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Exp" ColumnName="Exp" />
+                <ScalarProperty Name="Shef" ColumnName="Shef" />
+                <ScalarProperty Name="Oklad" ColumnName="Oklad" />
+                <ScalarProperty Name="Id_Post" ColumnName="Id_Post" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Id_Cathedra" ColumnName="Id_Cathedra" />
+                <ScalarProperty Name="Tab_Number" ColumnName="Tab_Number" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

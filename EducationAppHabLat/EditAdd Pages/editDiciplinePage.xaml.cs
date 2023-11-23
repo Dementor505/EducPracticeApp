@@ -69,24 +69,28 @@ namespace EducationAppHabLat.EditAdd_Pages
             }
             else
             {
-                Dicipline secondDicipline = new Dicipline
+                try
                 {
-                    Code_Dicipline = Convert.ToInt32(code.Text),
-                    Name_Dicipline = nameDicipline.Text,
-                    Space_Dicipline = Convert.ToInt32(space.Text),
-                    Id_Cathedra = Convert.ToInt32(cathedra.Text),
-                };
-                //App.myDb.Dicipline.Remove(App.selectDicipline);
-                App.myDb.SaveChanges();
-                if (App.myDb.Cathedra.Where(x => x.Id_Cathedra == secondDicipline.Id_Cathedra).FirstOrDefault() != null && App.myDb.Dicipline.Where(x => x.Name_Dicipline == secondDicipline.Name_Dicipline).FirstOrDefault() == null)
-                {
-                    App.myDb.Dicipline.Add(secondDicipline);
+                    Dicipline secondDicipline = new Dicipline
+                    {
+                        Code_Dicipline = Convert.ToInt32(code.Text),
+                        Name_Dicipline = nameDicipline.Text,
+                        Space_Dicipline = Convert.ToInt32(space.Text),
+                        Id_Cathedra = Convert.ToInt32(cathedra.Text),
+                    };
+                    //App.myDb.Dicipline.Remove(App.selectDicipline);
                     App.myDb.SaveChanges();
-                    NavigationService.Navigate(new DiciplinePage());
-                    App.selectDicipline = null;
+                    if (App.myDb.Cathedra.Where(x => x.Id_Cathedra == secondDicipline.Id_Cathedra).FirstOrDefault() != null && App.myDb.Dicipline.Where(x => x.Name_Dicipline == secondDicipline.Name_Dicipline).FirstOrDefault() == null)
+                    {
+                        App.myDb.Dicipline.Add(secondDicipline);
+                        App.myDb.SaveChanges();
+                        NavigationService.Navigate(new DiciplinePage());
+                        App.selectDicipline = null;
 
-                    App.myDb.Dicipline.AddOrUpdate();
+                        App.myDb.Dicipline.AddOrUpdate();
+                    }
                 }
+                catch { }
             }
         }
     }

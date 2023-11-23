@@ -17,14 +17,14 @@ namespace EducationAppHabLat.MyBase
         public int Id_Exam { get; set; }
         public Nullable<System.DateTime> Date_Exam { get; set; }
         public int Code_Discipline { get; set; }
-        public int Reg_Number { get; set; }
-        public int Tab_Number { get; set; }
+        public Nullable<int> Reg_Number { get; set; }
+        public Nullable<int> Tab_Number { get; set; }
         public string Auditory { get; set; }
         public Nullable<int> Grade { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Dicipline Dicipline { get; set; }
-        public virtual Employee Employee { get; set; }
         public virtual Student Student { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }
